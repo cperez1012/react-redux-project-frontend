@@ -1,0 +1,1 @@
+Have a seperate file for each reducer.
