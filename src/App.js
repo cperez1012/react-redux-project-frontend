@@ -1,6 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login.js'
 
 class App extends React.Component{
 
@@ -29,7 +30,8 @@ class App extends React.Component{
       //     </a>
       //   </header>
       // </div>
-      "hello world"
+      // "hello I'm React"
+      <Login />
     );
   }
 }
