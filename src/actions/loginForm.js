@@ -1,8 +1,8 @@
-import loginForm from "../reducers/loginForm"
+// import loginForm from "../reducers/loginForm"
 
-export const updateLoginForm = formData => {
+export const updateLoginForm = (formData) => {
     return {
         type: "UPDATE_LOGIN_FORM",
-        payload: formData
+        formData
     }
 } 

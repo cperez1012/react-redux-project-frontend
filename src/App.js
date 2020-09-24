@@ -1,19 +1,21 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login.js'
+import Login from './components/Login.js';
+import { connect } from 'react-redux';
+import { getCurrentUser } from './actions/currentUser.js';
 
 class App extends React.Component{
 
   // The componentDidMount() method runs after the component output has been rendered to the DOM. componentDidMount is a lifecycle method.
-  // componentDidMount() {
+  componentDidMount() {
   //   fetch("http://localhost:3000/api/v1/users/2")
   //     .then(r=>r.json()) 
   //     .then(console.log)
-
-  // }
+    this.props.getCurrentUser()
+  }
     render () {
-    return (
+      return (
       // <div className="App">
       //   <header className="App-header">
       //     <img src={logo} className="App-logo" alt="logo" />
@@ -36,4 +38,4 @@ class App extends React.Component{
   }
 }
 
-export default App;
+export default connect(null, { getCurrentUser })(App);
