@@ -1,8 +1,11 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login.js';
-import Logout from './components/Logout.js';
+// Replaced Login and Logout componenets with Navbar
+import Navbar from './components/Navbar.js';
+import MainContainer from './components/MainContainer.js';
+// import Login from './components/Login.js';
+// import Logout from './components/Logout.js';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 // import currentUser from './reducers/currentUser';
@@ -35,16 +38,29 @@ class App extends React.Component{
       //   </header>
       // </div>
       // "hello I'm React"
-      this.props.currentUser ? <Logout/> : <Login />
+      // this.props.currentUser ? <Logout/> : <Login />
+      
+      // Replaced conditional statement with Navbar and MainContainer
+      <div className="App">
+        <Navbar/>
+        <MainContainer/>
+      </div>
+      
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     currentUser: state
+//   }
+// }
 
-// export default connect(null, { getCurrentUser })(App);
-export default connect(mapStateToProps, { getCurrentUser })(App);
+// const mapStateToProps = ({ currentUser }) => {
+//   return {
+//     currentUser
+//   }
+// }
+
+export default connect(null, { getCurrentUser })(App);
+// export default connect(mapStateToProps, { getCurrentUser })(App);

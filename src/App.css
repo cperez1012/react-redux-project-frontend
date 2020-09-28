@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+/* adding .Navbar styling */
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  color:blue;
+}
