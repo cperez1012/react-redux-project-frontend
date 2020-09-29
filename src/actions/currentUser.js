@@ -1,3 +1,6 @@
+import { resetLoginForm } from './loginForm.js';
+import { getMyLists } from './myLists.js';
+
 // synchronous action creator
 
 // function that takes user as an object
@@ -31,12 +34,13 @@ export const login  = credentials => {
             body: JSON.stringify(credentials)
         })
             .then(response => response.json())
-            .then(user => {
-                if (user.error) {
-                    alert(user.error)
-
+            .then(response => {
+                if (response.error){
+                    alert(response.error)
                 } else {
-                    dispatch(setCurrentUser(user))
+                    dispatch(setCurrentUser(response.data))
+                    dispatch(getMyLists())
+                    dispatch(resetLoginForm())
                 }
             })
             .catch(console.log)
@@ -64,11 +68,12 @@ export const getCurrentUser = () => {
             },
         })
             .then(response => response.json())
-            .then(user => {
-                if (user.error){
-                    alert(user.error)
+            .then(response => {
+                if (response.error){
+                    alert(response.error)
                 } else {
-                    dispatch(setCurrentUser(user))
+                    dispatch(setCurrentUser(response.data))
+                    dispatch(getMyLists())
                 }
             })
             .catch(console.log)
