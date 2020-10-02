@@ -1,14 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { logout } from '../actions/currentUser.js';
 
 
+
 // Don't need handle submit because there is no data that needs to be passed through
-const Logout = ({ logout }) => {
+const Logout = ({ logout, history }) => {
 
     return (
 
-        <form onSubmit = { logout }>
+        <form onSubmit = { (event) => {
+            event.preventDefault()
+            logout()
+            history.push('/')
+            }
+        }>
             <input  value = "Logout" type="submit" />
         </form>
     )
@@ -18,4 +25,4 @@ const Logout = ({ logout }) => {
 // This function should be passed as the first argument to connect, and will be called every time when the Redux store state changes
 
 // When you don't need a state argument, put null
-export default connect(null, { logout }, )(Logout)
+export default withRouter(connect(null, { logout } )(Logout))
