@@ -3,64 +3,46 @@ import React from 'react';
 import './App.css';
 // Replaced Login and Logout componenets with Navbar
 import Navbar from './components/Navbar.js';
-import MainContainer from './components/MainContainer.js';
-// import Login from './components/Login.js';
+// import MainContainer from './components/MainContainer.js';
+import Home from './components/Home.js';
+import Login from './components/Login.js';
 // import Logout from './components/Logout.js';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
+import Signup from './components/Signup.js';
+import MyLists from './components/MyLists.js';
+import NewListForm from './components/NewListForm.js';
+import { Route, Switch, withRouter } from 'react-router-dom';
 // import currentUser from './reducers/currentUser';
 
 class App extends React.Component{
 
   // The componentDidMount() method runs after the component output has been rendered to the DOM. componentDidMount is a lifecycle method.
   componentDidMount() {
-  //   fetch("http://localhost:3000/api/v1/users/2")
-  //     .then(r=>r.json()) 
-  //     .then(console.log)
     this.props.getCurrentUser()
   }
     render () {
+      const { loggedIn } = this.props
       return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>
-      //       Edit <code>src/App.js</code> and save to reload.
-      //     </p>
-      //     <a
-      //       className="App-link"
-      //       href="https://reactjs.org"
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       Learn React
-      //     </a>
-      //   </header>
-      // </div>
-      // "hello I'm React"
-      // this.props.currentUser ? <Logout/> : <Login />
-      
-      // Replaced conditional statement with Navbar and MainContainer
+
       <div className="App">
-        <Navbar/>
-        <MainContainer/>
+        { loggedIn ? <Navbar {...this.props}/> : <Home /> }
+        <Switch>
+          <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
+          <Route exact path='/login' component={Login}/>
+          <Route exact path='/lists' component={MyLists}/>
+          <Route exact path='lists/new' component={NewListForm}/>
+        </Switch>
       </div>
       
     );
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     currentUser: state
-//   }
-// }
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser
+  })
+}
 
-// const mapStateToProps = ({ currentUser }) => {
-//   return {
-//     currentUser
-//   }
-// }
-
-export default connect(null, { getCurrentUser })(App);
-// export default connect(mapStateToProps, { getCurrentUser })(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
