@@ -19,12 +19,14 @@ import { Provider } from 'react-redux';
 
 // const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)));
 import store from './store.js'
-
+import { Router } from 'react-router-dom' 
 
 ReactDOM.render(
   // <React.StrictMode>
   <Provider store={ store }>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   // </React.StrictMode>,
   document.getElementById('root')
