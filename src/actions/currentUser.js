@@ -1,5 +1,6 @@
 import { resetLoginForm } from './loginForm.js';
-import { getMyLists } from './myLists.js';
+import { getMyLists, clearLists } from './myLists.js';
+import { resetSignupForm } from './signupForm.js';
 
 // synchronous action creator
 
@@ -22,7 +23,7 @@ export const clearCurrentUser = () => {
 }
 // asynchronous action creator
 // allows us to use dispatch
-export const login  = credentials => {
+export const login  = (credentials, history) => {
     console.log("credentials are", credentials)
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/login", {
@@ -41,15 +42,17 @@ export const login  = credentials => {
                     dispatch(setCurrentUser(response.data))
                     dispatch(getMyLists())
                     dispatch(resetLoginForm())
+                    history.push('/')
                 }
             })
             .catch(console.log)
     }
 }
 
-export const logout = () => {
+export const logout = (event) => {
     return (dispatch) => {
         dispatch(clearCurrentUser())
+        dispatch(clearLists())
         return fetch('http://localhost:3001/api/v1/logout', {
             credentials: "include",
             method: 'DELETE'    
@@ -79,4 +82,31 @@ export const getCurrentUser = () => {
             .catch(console.log)
     }
 }
- 
+
+export const signup = (credentials, history) => {
+    return dispatch => {
+        const userInfo = {
+            user: credentials
+        }
+        return fetch("http://localhost:3001/api/v1/signup", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then(response => response.json())
+        .then(response => {
+             if (response.error) {
+                alert(response.error)    
+             } else {
+                 dispatch(setCurrentUser(response.data))
+                 dispatch(getMyLists())
+                 dispatch(resetSignupForm())
+                 history.push('/')
+             }
+        })
+        .catch(console.log)
+    }
+}
