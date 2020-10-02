@@ -7,7 +7,7 @@ import { login } from '../actions/currentUser.js';
 
 // const Login = (props) => {
 
-const Login = ({ loginForm, updateLoginForm, login }) => {
+const Login = ({ loginForm, updateLoginForm, login, history }) => {
 
         const handleInputChange = event => {
             const { name, value } = event.target
@@ -20,7 +20,7 @@ const Login = ({ loginForm, updateLoginForm, login }) => {
 
         const handleSubmit = event => {
             event.preventDefault()
-            login(loginForm)
+            login(loginForm, history)
         }
     return (
 
