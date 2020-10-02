@@ -29,3 +29,9 @@ export const getMyLists = () => {
             .catch(console.log)    
     }
 }
+
+export const clearLists = () => {
+    return {
+        type: "CLEAR_LISTS"
+    }
+}
