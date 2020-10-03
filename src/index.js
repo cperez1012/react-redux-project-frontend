@@ -18,8 +18,9 @@ import { Provider } from 'react-redux';
 // const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)));
-import store from './store.js'
-import { Router } from 'react-router-dom' 
+import store from './store.js';
+// import { Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'; 
 
 ReactDOM.render(
   // <React.StrictMode>

@@ -13,6 +13,7 @@ import Signup from './components/Signup.js';
 import MyLists from './components/MyLists.js';
 import NewListForm from './components/NewListForm.js';
 import { Route, Switch, withRouter } from 'react-router-dom';
+
 // import currentUser from './reducers/currentUser';
 
 class App extends React.Component{
