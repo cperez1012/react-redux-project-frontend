@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import userReducer from './reducers/users.js'
+// import userReducer from './reducers/users.js'
 import currentUser from './reducers/currentUser.js'
 import loginForm from './reducers/loginForm.js'
 import myLists from './reducers/myLists.js'
@@ -10,7 +10,7 @@ import thunk from "redux-thunk";
 // displaying different syntax options here: lines 8 & 9
 const reducer = combineReducers({
     // Key of user, pointed to the store within ./actions/user.js
-    user: userReducer,
+    // user: userReducer,
     currentUser,
     loginForm,
     myLists,
