@@ -30,9 +30,9 @@ const NewListForm = ({ name }) => {
 
 const mapStateToProps = (state) => {
     const { name } =state.newListForm
-    return (
+    return {
         name
-    )
+    }
 }
 
 export default connect(mapStateToProps, { updateNewListForm })(NewListForm);
