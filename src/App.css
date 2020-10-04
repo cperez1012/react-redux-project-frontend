@@ -43,3 +43,7 @@
   flex-direction: row;
   color:blue;
 }
+
+#loggedin {
+  font-size: 7px;
+}
