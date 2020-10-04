@@ -9,7 +9,7 @@ const Navbar = ({ currentUser, loggedIn }) => {
         <div className="Navbar">
             <NavLink exact activeClassName="active" to="/lists" >My Lists    | </NavLink>
             <NavLink exact activeClassName="active" to="/lists/new" >New List    |</NavLink>
-            { loggedIn ? <Logout/>  : null }
+            { loggedIn ? <><p id="loggedin">Logged In as {currentUser.attributes.username}</p><Logout/></>  : null }
         </div>
     )
 }
