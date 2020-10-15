@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './image/logo.png'
 // import logo from './logo.svg';
 import './App.css';
 // Replaced Login and Logout componenets with Navbar
@@ -11,7 +12,10 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import Signup from './components/Signup.js';
 import MyLists from './components/MyLists.js';
-import NewListForm from './components/NewListForm.js';
+// import NewListForm from './components/NewListForm.js';
+import ListCard from './components/ListCard.js';
+import NewListFormWrapper from './components/NewListFormWrapper.js';
+import EditListFormWrapper from './components/EditListFormWrapper.js';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 // import currentUser from './reducers/currentUser';
@@ -23,16 +27,37 @@ class App extends React.Component{
     this.props.getCurrentUser()
   }
     render () {
-      const { loggedIn } = this.props
+      const { loggedIn, lists } = this.props
       return (
 
       <div className="App">
-        { loggedIn ? <Navbar {...this.props}/> : <Home /> }
+        <img src={logo} alt="Boxing Fan App"/>
+        { loggedIn ? <Navbar location={this.props.location}/> : <Home /> }
         <Switch>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/lists' component={MyLists}/>
-          <Route exact path='lists/new' component={NewListForm}/>
+          <Route exact path='/lists/new' component={NewListFormWrapper}/>
+          <Route exact path='/lists/:id' render={props =>{
+            const list = lists.find(list => list.id === props.match.params.id)
+            console.log(list)
+            return <ListCard list={list} {...props}/>
+            }
+          }/>,
+          <Route exact path='/lists/:id/edit' render={props => {
+            const list = lists.find(list => list.id === props.match.params.id)
+            return <EditListFormWrapper list={list} {...props}/>
+            }
+          } 
+          />
+          {/* <Route exact path='/fighters' component={MyFighters}/>
+          <Route exact path='/fighters/new' component={NewFighterFormWrapper}/>
+          <Route exact path='/fighters/:id' component={props =>{
+            const fighter = fighters.find(fighter => fighter.id === props.match.params.id)
+            return <EditFighterFormWrapper fighter={fighter} {...props}/>
+            }
+          } */}
+          {/* /> */}
         </Switch>
       </div>
       
@@ -42,7 +67,9 @@ class App extends React.Component{
 
 const mapStateToProps = state => {
   return ({
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser,
+    lists: state.myLists,
+    fighters: state.myFighters
   })
 }
 
