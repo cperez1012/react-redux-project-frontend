@@ -34,7 +34,7 @@ export const login  = (credentials, history) => {
             },
             body: JSON.stringify(credentials)
         })
-            .then(response => response.json())
+            .then(resp => resp.json())
             .then(response => {
                 if (response.error){
                     alert(response.error)
@@ -49,7 +49,7 @@ export const login  = (credentials, history) => {
     }
 }
 
-export const logout = (event) => {
+export const logout = event => {
     return (dispatch) => {
         dispatch(clearCurrentUser())
         dispatch(clearLists())
@@ -70,13 +70,15 @@ export const getCurrentUser = () => {
                 "Content-Type": "application/json"
             },
         })
-            .then(response => response.json())
+            .then(resp => resp.json())
             .then(response => {
                 if (response.error){
                     alert(response.error)
                 } else {
                     dispatch(setCurrentUser(response.data))
-                    dispatch(getMyLists())
+                    // debugger
+                    const userId = response.data.id
+                    dispatch(getMyLists(userId))
                 }
             })
             .catch(console.log)
@@ -96,7 +98,7 @@ export const signup = (credentials, history) => {
             },
             body: JSON.stringify(userInfo)
         })
-        .then(response => response.json())
+        .then(resp => resp.json())
         .then(response => {
              if (response.error) {
                 alert(response.error)    
