@@ -39,9 +39,10 @@
 
 /* adding .Navbar styling */
 .Navbar {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   color:blue;
+  border-right: 1px solid #bbb;
 }
 
 #loggedin {
