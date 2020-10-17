@@ -25,8 +25,9 @@ const handleSubmit = event => {
     return (
         <form onSubmit={handleSubmit}>
             <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />
+            <input placeholder="email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />
             <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />
-            <input placeholder="image url" value={signupFormData.imageUrl} name="image url" type="text" onChange={handleUserInfoInputChange} />
+            <input placeholder="image url" value={signupFormData.imageUrl} name="imageUrl" type="text" onChange={handleUserInfoInputChange} />
             <input placeholder="bio" value={signupFormData.bio} name="bio" type="text" onChange={handleUserInfoInputChange} />
             <input type="submit"  value="Sign Up"/>
         </form>
