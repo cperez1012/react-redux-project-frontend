@@ -69,7 +69,7 @@ const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser,
     lists: state.myLists,
-    fighters: state.myFighters
+    // fighters: state.myFighters
   })
 }
 
