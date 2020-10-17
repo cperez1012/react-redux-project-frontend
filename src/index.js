@@ -19,6 +19,7 @@ import { Provider } from 'react-redux';
 
 // const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)));
 import store from './store.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import { Router } from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'; 
 
