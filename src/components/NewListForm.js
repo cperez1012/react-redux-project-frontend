@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 // 3.  This means Redux gives us back a prop called updateNewTripForm
 // which when invoked, actually Redux will now dispatch
-const NewListForm = ({ formData, updateNewListForm, userId, list, handleSubmit, editMode }) => {
+const NewListForm = ({ formData, updateNewListForm, handleSubmit, editMode }) => {
 
     const { title } = formData
 
@@ -40,7 +40,7 @@ const NewListForm = ({ formData, updateNewListForm, userId, list, handleSubmit, 
         </form>
 )};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     const userId = state.currentUser ? state.currentUser.id : ""
     return {
         formData: state.newListForm,
