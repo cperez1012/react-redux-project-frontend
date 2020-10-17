@@ -1,5 +1,6 @@
 const initialState = {
     username: "",
+    email: "",
     password: "",
     imageUrl: "",
     bio: "",
