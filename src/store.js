@@ -5,6 +5,7 @@ import loginForm from './reducers/loginForm.js'
 import myLists from './reducers/myLists.js'
 import signupForm from './reducers/signupForm.js'
 import newListForm from './reducers/newListForm.js'
+import myFighters from './reducers/myFighters.js'
 import thunk from "redux-thunk";
 
 // displaying different syntax options here: lines 8 & 9
@@ -15,7 +16,8 @@ const reducer = combineReducers({
     loginForm,
     myLists,
     signupForm,
-    newListForm
+    newListForm,
+    myFighters
 })
 
 // Putting our middleware together
