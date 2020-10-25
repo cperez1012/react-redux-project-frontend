@@ -3,15 +3,18 @@ import React from 'react';
 import { updateNewListForm } from '../actions/newListForm.js';
 // import { createList } from '../actions/myLists.js'
 import { connect } from 'react-redux';
+import Button from 'react-bootstrap/Button';
 
 // 3.  This means Redux gives us back a prop called updateNewTripForm
 // which when invoked, actually Redux will now dispatch
-const NewListForm = ({ formData, updateNewListForm, handleSubmit, editMode }) => {
+const NewListForm = ({ formData, updateNewListForm, userId, list, handleSubmit, editMode }) => {
 
     const { title } = formData
-
+    // debugger
     const handleChange = event => {
+     
         const { name, value } = event.target
+        // debugger
         // 4.  This is not an invocation of just the action creator,
         // it's now Redux dispatching the action built by the action
         // creator with the appropriate arguments
@@ -25,18 +28,20 @@ const NewListForm = ({ formData, updateNewListForm, handleSubmit, editMode }) =>
     return (
         <form onSubmit={event => {
             event.preventDefault()
+            debugger
             handleSubmit(formData)
         }}>
             <input 
                 placeholder="title"
                 name="title"
                 onChange={handleChange}
-                value={title}    
+                value={title}   
             /><br></br>
-            <input 
+            <Button 
                 type="submit"
-                value={ editMode ? "Update List" : "Create List" }
-            />
+                // value={ editMode ? "Update List" : "Create List" }
+            >
+            Create List</Button>
         </form>
 )};
 
