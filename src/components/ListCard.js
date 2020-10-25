@@ -1,33 +1,33 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const ListCard = ({ list }) =>  {
-    // debugger
+    debugger
     console.log(list)
 
-    // const Fighters = ({ fighter }) => {
-    //     console.log(fighter)
     debugger
+
+    // const mappedFighters = list.relationships.fighters.data.map(f => f)
+    // const mappedFighters = list
+    // debugger
     return (
-        // list ?
         <div>
             <h1>{list.attributes.title}</h1>
-            <p>{list.relationships.fighters.data.map(({fighter}) => fighter)}</p>
+            <p>{list.relationships.fighters.data.map(f =>
+                f.attributes
+            )}</p>
             <Link to={`/lists/${list.id}/edit`}>Edit This List Name</Link>
-        </div> 
-        // : (
-        // <p>This List Card has no lists!</p>
-        // )   
+        </div>    
     )
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//       list: state
-//     }
-// }
+const mapStateToProps = state => {
+    return {
+        lists: state.myLists,
+        fighters: state.myFighters
+    }
+}
 
-// export default connect(mapStateToProps)(ListCard);
-
-export default ListCard;
+export default connect(mapStateToProps)(ListCard);
+// export default ListCard;
