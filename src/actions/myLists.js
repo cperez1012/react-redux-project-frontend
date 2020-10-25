@@ -1,5 +1,15 @@
 import { setCurrentUser } from './currentUser.js'
+import { setMyFighters } from './myFighters.js'
 import { resetListForm } from './newListForm.js'
+// import { matchPath } from "react-router";
+
+// const userId = response.data.id
+
+// const match = matchPath(`/users/${userId}`, {
+//   path: "/users/:id",
+//   exact: false,
+//   strict: false
+// });
 
 //synchronous actions
 
@@ -34,12 +44,9 @@ export const deleteListSuccess = listId => {
 }
 
 //asynchronous actions
-export const getMyLists = (userId) => {
+export const getMyLists = () => {
     return dispatch => {
-        // debugger
-        // return fetch(`http://localhost:3001/api/v1/users/${user.id}/lists`, {
-            // debugger
-        return fetch(`http://localhost:3001/api/v1/users/${userId}/lists`, {
+        return fetch(`http://localhost:3001/api/v1/users/:user/lists`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -51,10 +58,10 @@ export const getMyLists = (userId) => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    console.log(response.data)
-                    // debugger
-                    // dispatch(setCurrentUser(response.data))
+                    console.log(response.included)
+                    debugger
                     dispatch(setMyLists(response.data))
+                    dispatch(setMyFighters(response.data.included))
                 }
             })
             .catch(console.log)    
@@ -67,15 +74,16 @@ export const clearLists = () => {
     }
 }
 
-export const createList = ( listData, history, userId) => {
+export const createList = ( listData, history ) => {
     // debugger
     return dispatch => {
         const remitListData = {
             title: listData.title
         }
+        debugger
 
-    // return fetch(`http://localhost:3001/api/v1/users/${user.id}/lists`, {
-    return fetch( `http://localhost:3001/api/v1/users/${userId}/lists`, {
+    return fetch(`http://localhost:3001/api/v1/users/:user/lists`, {
+    // return fetch(url + `/lists`, {
         credentials: "include",
         method: "POST",
         headers: {
@@ -100,17 +108,17 @@ export const createList = ( listData, history, userId) => {
     }
 }
 
-export const updateList = ( listData, history, userId) => {
+export const updateList = ( listData, history ) => {
     // debugger
     return dispatch => {
 
-        debugger
+        // debugger
         const remitListData = {
             title: listData.title
         }
 
         debugger
-        return fetch( `http://localhost:3001/api/v1/users/${userId}/lists/${listData.listId}`,{
+        return fetch(`http://localhost:3001/api/v1/users/:user/lists/${listData.listId}`,{
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -132,9 +140,9 @@ export const updateList = ( listData, history, userId) => {
     }
 }
 
-export const deleteList = ( listId, history, userId) => {
+export const deleteList = ( listId, history ) => {
     return dispatch => {
-        return fetch( `http://localhost:3001/api/v1/users/${userId}/lists/${listId}`, {
+        return fetch(`http://localhost:3001/api/v1/users/:user/lists/${listId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {
@@ -146,7 +154,7 @@ export const deleteList = ( listId, history, userId) => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    dispatch(setCurrentUser(response.data))
+                    // dispatch(setCurrentUser(response.data))
                     dispatch(deleteListSuccess(listId))
                     history.push(`/lists`)
                 }
@@ -154,3 +162,7 @@ export const deleteList = ( listId, history, userId) => {
             .catch(console.log)
     }
 }
+
+// export const actions = {
+//     saveLocalStorageItem: (payload: InputAction) => ({type: 'saveLocalStorageItem', payload}),
+//   };
