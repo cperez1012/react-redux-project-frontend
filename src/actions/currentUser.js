@@ -1,4 +1,5 @@
 import { resetLoginForm } from './loginForm.js';
+import { getMyFighters } from './myFighters.js';
 import { getMyLists, clearLists } from './myLists.js';
 import { resetSignupForm } from './signupForm.js';
 
@@ -79,6 +80,7 @@ export const getCurrentUser = () => {
                     // debugger
                     const userId = response.data.id
                     dispatch(getMyLists(userId))
+                    dispatch(getMyFighters(userId))
                 }
             })
             .catch(console.log)
