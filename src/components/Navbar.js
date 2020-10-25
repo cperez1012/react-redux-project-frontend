@@ -5,11 +5,18 @@ import { NavLink } from 'react-router-dom';
 import Logout from './Logout.js';
 
 const Navbar = ({ currentUser, loggedIn }) => {
+    debugger
     return (
         <div className="Navbar">
             <NavLink exact activeClassName="active" to="/lists" >My Lists    | </NavLink>
             <NavLink exact activeClassName="active" to="/lists/new" >New List    |</NavLink>
-            { loggedIn ? <><p id="loggedin">Logged In as {currentUser.attributes.username}</p><Logout/></>  : null }
+            <NavLink exact activeClassName="active" to="/fighters" >My Fighters  </NavLink>
+            { loggedIn ? <><p id="loggedin">Logged In as {currentUser.attributes.username}</p>    <img 
+    src={currentUser.attributes.image_url} 
+    alt="profile pic"
+    /><Logout/></>  : null }
+    <p>{currentUser.attributes.bio}</p>
+
         </div>
     )
 }
