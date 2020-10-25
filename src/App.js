@@ -44,7 +44,7 @@ class App extends React.Component{
           <Route exact path='/lists/:id' render={props =>{
             const list = lists.find(list => list.id === props.match.params.id)
             console.log(list)
-            const fighter = list.relationships.fighters.find(fighter => fighter.listId == list.i)
+            const fighter = list.relationships.fighters.find(fighter => fighter.listId == list.id)
             debugger
             return <ListCard list={list} {...props}/>
             }
