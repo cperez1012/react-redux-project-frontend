@@ -1,5 +1,5 @@
 const initialState = {
-    title: "",
+    title: ""
 }
 
 export default (state=initialState, action) => {
@@ -7,8 +7,9 @@ export default (state=initialState, action) => {
         case "UPDATE_NEW_LIST_FORM":
             const returnVal = {
                 ...state,
-                [action.formData.title]: action.formData.value
+                [action.formData.name]: action.formData.value
             }
+            // debugger
         return returnVal
         case "RESET_NEW_LIST_FORM":
             return initialState
