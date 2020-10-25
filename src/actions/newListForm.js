@@ -2,7 +2,7 @@
 export const updateNewListForm = (name, value) => {
     // console.log(name, value)
     const formData = { name, value }
-    debugger
+    // debugger
     return {
         type: "UPDATE_NEW_LIST_FORM",
         formData
@@ -16,7 +16,7 @@ export const resetListForm = () => {
 }
 
 export const setFormDataForEdit = list => {
-    debugger
+    // debugger
     const listFormData = {
         title:  list.attributes.title
     }
