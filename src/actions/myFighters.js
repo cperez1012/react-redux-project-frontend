@@ -43,7 +43,7 @@ export const getMyFighters = () => {
         // let { path, url } = useRouteMatch
         // return fetch(`http://localhost:3001/api/v1/users/${user.id}/lists`, {
             // debugger
-        return fetch(`http://localhost:3001/api/v1/users/:user/lists/:list/fighters`, {
+        return fetch(`http://localhost:3001/api/v1/users/:user/fighters`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -79,7 +79,7 @@ export const createFighter = ( fighterData, history ) => {
         }
 
     // return fetch(`http://localhost:3001/api/v1/users/${user.id}/lists`, {
-    return fetch( `http://localhost:3001/api/v1/users/:user/lists`, {
+    return fetch( `http://localhost:3001/api/v1/users/:user/fighters`, {
         credentials: "include",
         method: "POST",
         headers: {

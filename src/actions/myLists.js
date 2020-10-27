@@ -1,4 +1,4 @@
-import { setCurrentUser } from './currentUser.js'
+// import { setCurrentUser } from './currentUser.js'
 import { setMyFighters } from './myFighters.js'
 import { resetListForm } from './newListForm.js'
 // import { matchPath } from "react-router";
