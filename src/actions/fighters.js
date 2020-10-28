@@ -1,52 +1,49 @@
+// import { useRouteMatch } from 'react-router-dom'
 // import { setCurrentUser } from './currentUser.js'
-import { setMyFighters } from './myFighters.js'
-import { resetListForm } from './newListForm.js'
-// import { matchPath } from "react-router";
-
-// const userId = response.data.id
-
-// const match = matchPath(`/users/${userId}`, {
-//   path: "/users/:id",
-//   exact: false,
-//   strict: false
-// });
+// import { resetListForm } from './newListForm.js'
 
 //synchronous actions
 
-export const setMyLists = lists => {
+// const fightersReducer = (state = { fighters: {}, retrievingData: false }, action)
 
-    // debugger
+export const setFighters = fighters => {
+
+    debugger
     return {
-        type: "SET_MY_LISTS",
-        lists
+        type: "SET_MY_FIGHTERS",
+        fighters
     }
 }
 
-export const addList = list => {
+export const addFighter = fighter => {
     return {
-        type: "ADD_LIST",
-        list
+        type: "ADD_FIGHTER",
+        fighter
     }
 }
 
-export const updateListSuccess = list => {
+export const updateFighterSuccess = fighter => {
     return {
-        type: "UPDATE_LIST",
-        list
+        type: "UPDATE_FIGHTER",
+        fighter
     }
 }
 
-export const deleteListSuccess = listId => {
+export const deleteFighterSuccess = fighterId => {
     return {
-        type: "DELETE_LIST",
-        listId
+        type: "DELETE_FIGHTER",
+        fighterId
     }
 }
 
 //asynchronous actions
-export const getMyLists = () => {
+export const getFighters = () => {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/v1/users/:user/lists`, {
+        debugger
+        // let { path, url } = useRouteMatch
+        // return fetch(`http://localhost:3001/api/v1/users/${user.id}/lists`, {
+            // debugger
+        return fetch(`http://localhost:3001/api/v1/fighters`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -58,38 +55,36 @@ export const getMyLists = () => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    console.log(response)
+                    console.log(response.data)
                     debugger
-                    dispatch(setMyLists(response.data))
-                    dispatch(setMyFighters(response.data))
+                    // dispatch(setCurrentUser(response.data))
+                    dispatch(setFighters(response.data))
                 }
             })
             .catch(console.log)    
     }
 }
 
-export const clearLists = () => {
+export const clearFighters = () => {
     return {
-        type: "CLEAR_LISTS"
+        type: "CLEAR_FIGHTERS"
     }
 }
 
-export const createList = ( listData, history ) => {
+export const createFighter = ( fighterData, history ) => {
     // debugger
     return dispatch => {
-        const remitListData = {
-            title: listData.title
+        const remitFighterData = {
+            name: fighterData.name
         }
-        debugger
 
-    return fetch(`http://localhost:3001/api/v1/users/:user/lists`, {
-    // return fetch(url + `/lists`, {
+    return fetch( `http://localhost:3001/api/v1/fighters`, {
         credentials: "include",
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(remitListData)
+        body: JSON.stringify(remitFighterData)
     })
         .then(resp => resp.json())
         .then(response => {
@@ -98,9 +93,9 @@ export const createList = ( listData, history ) => {
                 } else {
                     // dispatch(setCurrentUser(response.data))
                     // debugger
-                    dispatch(addList(response.data))
-                    dispatch(resetListForm())
-                    history.push(`/lists/${response.data.id}`)
+                    dispatch(addFighter(response.data))
+                    // dispatch(resetListForm())
+                    history.push(`/fighters/${response.data.id}`)
             }
         })
         // .then(console.log)
@@ -108,23 +103,23 @@ export const createList = ( listData, history ) => {
     }
 }
 
-export const updateList = ( listData, history ) => {
+export const updateFighter = ( fighterData, history ) => {
     // debugger
     return dispatch => {
 
         // debugger
-        const remitListData = {
-            title: listData.title
+        const remitFighterData = {
+            name: fighterData.name
         }
 
         debugger
-        return fetch(`http://localhost:3001/api/v1/users/:user/lists/${listData.listId}`,{
+        return fetch( `http://localhost:3001/api/v1/fighters/${fighterData.fighterId}`,{
             credentials: "include",
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(remitListData)
+            body: JSON.stringify(remitFighterData)
         })
             .then(resp => resp.json())
             .then(response => {
@@ -132,17 +127,17 @@ export const updateList = ( listData, history ) => {
                     alert(response.error)
                 } else {
                     // dispatch(setCurrentUser(response.data))
-                    dispatch(updateListSuccess(response.data))
-                    history.push(`/lists/${response.data.id}`)
+                    dispatch(updateFighterSuccess(response.data))
+                    history.push(`/fighters/${response.data.id}`)
                 }
             })
             .catch(console.log)
     }
 }
 
-export const deleteList = ( listId, history ) => {
+export const deleteFighter = ( fighterId, history ) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/v1/users/:user/lists/${listId}`, {
+        return fetch( `http://localhost:3001/api/v1/fighters/${fighterId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {
@@ -155,14 +150,10 @@ export const deleteList = ( listId, history ) => {
                     alert(response.error)
                 } else {
                     // dispatch(setCurrentUser(response.data))
-                    dispatch(deleteListSuccess(listId))
-                    history.push(`/lists`)
+                    dispatch(deleteFighterSuccess(response.data))
+                    history.push(`/fighters`)
                 }
             })
             .catch(console.log)
     }
 }
-
-// export const actions = {
-//     saveLocalStorageItem: (payload: InputAction) => ({type: 'saveLocalStorageItem', payload}),
-//   };

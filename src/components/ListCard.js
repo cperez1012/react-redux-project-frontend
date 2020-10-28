@@ -14,9 +14,9 @@ const ListCard = ({ list }) =>  {
     return (
         <div>
             <h1>{list.attributes.title}</h1>
-            <p>{list.relationships.fighters.data.map(f =>
+            {/* <p>{list.relationships.fighters.data.map(f =>
                 f.attributes
-            )}</p>
+            )}</p> */}
             <Link to={`/lists/${list.id}/edit`}>Edit This List Name</Link>
         </div>    
     )

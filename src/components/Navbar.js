@@ -10,10 +10,11 @@ const Navbar = ({ currentUser, loggedIn }) => {
         <div className="Navbar">
             <NavLink exact activeClassName="active" to="/lists" >My Lists    | </NavLink>
             <NavLink exact activeClassName="active" to="/lists/new" >New List    |</NavLink>
-            <NavLink exact activeClassName="active" to="/fighters" >My Fighters  </NavLink>
+            <NavLink exact activeClassName="active" to="/fighters" >Fighters  </NavLink>
             { loggedIn ? <><p id="loggedin">Logged In as {currentUser.attributes.username}</p>    <img 
     src={currentUser.attributes.image_url} 
     alt="profile pic"
+    style={{ width: 36 }} 
     /><Logout/></>  : null }
     <p>{currentUser.attributes.bio}</p>
 

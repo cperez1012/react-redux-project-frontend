@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import Signup from './components/Signup.js';
 import MyLists from './components/MyLists.js';
-import MyFighters from './components/MyFighters.js';
+import Fighters from './components/MyFighters.js';
 // import NewListForm from './components/NewListForm.js';
 import ListCard from './components/ListCard.js';
 // import FighterCard from './components/FighterCard.js'
@@ -30,7 +30,7 @@ class App extends React.Component{
     this.props.getCurrentUser()
   }
     render () {
-      const { loggedIn, lists, fighters } = this.props
+      const { loggedIn, lists } = this.props
       return (
 
       <div className="App">
@@ -44,7 +44,6 @@ class App extends React.Component{
           <Route exact path='/lists/:id' render={props =>{
             const list = lists.find(list => list.id === props.match.params.id)
             console.log(list)
-            const fighter = list.relationships.fighters.find(fighter => fighter.listId == list.id)
             debugger
             return <ListCard list={list} {...props}/>
             }
@@ -54,7 +53,7 @@ class App extends React.Component{
             return <EditListFormWrapper list={list} {...props}/>
             }
           }/>
-          <Route exact path='/fighters' component={MyFighters}/>
+          <Route exact path='/fighters' component={Fighters}/>
           {/* <Route exact path='/fighters/new' component={NewFighterFormWrapper}/>
           <Route exact path='/fighters/:id' render={props =>{
               const fighter = fighters.find(fighter => fighter.id == props.match.params.id)

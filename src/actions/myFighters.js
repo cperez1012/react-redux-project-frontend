@@ -8,7 +8,7 @@
 
 export const setMyFighters = fighters => {
 
-    // debugger
+    debugger
     return {
         type: "SET_MY_FIGHTERS",
         fighters
