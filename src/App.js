@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import Signup from './components/Signup.js';
 import MyLists from './components/MyLists.js';
-import Fighters from './components/MyFighters.js';
+import Fighters from './components/Fighters.js';
 // import NewListForm from './components/NewListForm.js';
 import ListCard from './components/ListCard.js';
 // import FighterCard from './components/FighterCard.js'
@@ -54,21 +54,6 @@ class App extends React.Component{
             }
           }/>
           <Route exact path='/fighters' component={Fighters}/>
-          {/* <Route exact path='/fighters/new' component={NewFighterFormWrapper}/>
-          <Route exact path='/fighters/:id' render={props =>{
-              const fighter = fighters.find(fighter => fighter.id == props.match.params.id)
-            console.log(fighter) 
-            return <EditFighterFormWrapper fighter={fighter} {...props}/>
-          }}  */}
-          {/* /> */}
-          {/* <Route exact path='/fighters' component={MyFighters}/>
-          <Route exact path='/fighters/new' component={NewFighterFormWrapper}/>
-          <Route exact path='/fighters/:id' component={props =>{
-            const fighter = fighters.find(fighter => fighter.id === props.match.params.id)
-            return <EditFighterFormWrapper fighter={fighter} {...props}/>
-            }
-          } */}
-          {/* /> */}
         </Switch>
       </div>
       
@@ -80,7 +65,7 @@ const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser,
     lists: state.myLists,
-    fighters: state.myFighters
+    fighters: state.fighters
   })
 }
 

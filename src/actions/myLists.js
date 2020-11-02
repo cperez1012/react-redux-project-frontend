@@ -1,15 +1,6 @@
 // import { setCurrentUser } from './currentUser.js'
-import { setMyFighters } from './myFighters.js'
+import { setFighters } from './fighters.js'
 import { resetListForm } from './newListForm.js'
-// import { matchPath } from "react-router";
-
-// const userId = response.data.id
-
-// const match = matchPath(`/users/${userId}`, {
-//   path: "/users/:id",
-//   exact: false,
-//   strict: false
-// });
 
 //synchronous actions
 
@@ -61,7 +52,7 @@ export const getMyLists = () => {
                     console.log(response)
                     debugger
                     dispatch(setMyLists(response.data))
-                    dispatch(setMyFighters(response.data))
+                    dispatch(setFighters(response.data))
                 }
             })
             .catch(console.log)    

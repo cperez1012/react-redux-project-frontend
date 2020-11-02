@@ -1,4 +1,6 @@
-const initialState = []
+const initialState = {
+    fighters: []
+}
 
 export default (state=initialState, action) => {    
     switch (action.type) {

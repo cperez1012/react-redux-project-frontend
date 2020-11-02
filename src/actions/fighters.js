@@ -4,13 +4,11 @@
 
 //synchronous actions
 
-// const fightersReducer = (state = { fighters: {}, retrievingData: false }, action)
-
 export const setFighters = fighters => {
 
     debugger
     return {
-        type: "SET_MY_FIGHTERS",
+        type: "SET_FIGHTERS",
         fighters
     }
 }
@@ -40,9 +38,7 @@ export const deleteFighterSuccess = fighterId => {
 export const getFighters = () => {
     return dispatch => {
         debugger
-        // let { path, url } = useRouteMatch
-        // return fetch(`http://localhost:3001/api/v1/users/${user.id}/lists`, {
-            // debugger
+
         return fetch(`http://localhost:3001/api/v1/fighters`, {
             credentials: "include",
             method: "GET",
@@ -57,7 +53,7 @@ export const getFighters = () => {
                 } else {
                     console.log(response.data)
                     debugger
-                    // dispatch(setCurrentUser(response.data))
+                    
                     dispatch(setFighters(response.data))
                 }
             })

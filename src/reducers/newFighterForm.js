@@ -11,8 +11,7 @@ const initialState = {
     win: "",
     loss: "",
     draw: "",
-    ko: "",
-    listId: ""
+    ko: ""
 }
 
 export default (state=initialState, action) => {
