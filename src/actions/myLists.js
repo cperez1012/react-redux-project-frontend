@@ -1,5 +1,3 @@
-// import { setCurrentUser } from './currentUser.js'
-import { setFighters } from './fighters.js'
 import { resetListForm } from './newListForm.js'
 
 //synchronous actions
@@ -52,7 +50,6 @@ export const getMyLists = () => {
                     console.log(response)
                     debugger
                     dispatch(setMyLists(response.data))
-                    dispatch(setFighters(response.data))
                 }
             })
             .catch(console.log)    
@@ -66,15 +63,12 @@ export const clearLists = () => {
 }
 
 export const createList = ( listData, history ) => {
-    // debugger
     return dispatch => {
         const remitListData = {
             title: listData.title
         }
-        debugger
 
     return fetch(`http://localhost:3001/api/v1/users/:user/lists`, {
-    // return fetch(url + `/lists`, {
         credentials: "include",
         method: "POST",
         headers: {
@@ -87,28 +81,22 @@ export const createList = ( listData, history ) => {
             if (response.error) {
                 alert(response.error) 
                 } else {
-                    // dispatch(setCurrentUser(response.data))
-                    // debugger
                     dispatch(addList(response.data))
                     dispatch(resetListForm())
                     history.push(`/lists/${response.data.id}`)
             }
         })
-        // .then(console.log)
         .catch(console.log)
     }
 }
 
 export const updateList = ( listData, history ) => {
-    // debugger
     return dispatch => {
 
-        // debugger
         const remitListData = {
             title: listData.title
         }
 
-        debugger
         return fetch(`http://localhost:3001/api/v1/users/:user/lists/${listData.listId}`,{
             credentials: "include",
             method: "PATCH",
@@ -122,7 +110,6 @@ export const updateList = ( listData, history ) => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    // dispatch(setCurrentUser(response.data))
                     dispatch(updateListSuccess(response.data))
                     history.push(`/lists/${response.data.id}`)
                 }
@@ -145,7 +132,6 @@ export const deleteList = ( listId, history ) => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    // dispatch(setCurrentUser(response.data))
                     dispatch(deleteListSuccess(listId))
                     history.push(`/lists`)
                 }
@@ -153,7 +139,3 @@ export const deleteList = ( listId, history ) => {
             .catch(console.log)
     }
 }
-
-// export const actions = {
-//     saveLocalStorageItem: (payload: InputAction) => ({type: 'saveLocalStorageItem', payload}),
-//   };

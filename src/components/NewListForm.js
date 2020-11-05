@@ -1,7 +1,6 @@
 import React from 'react';
 // 1.  VVV We first grab the action creator
 import { updateNewListForm } from '../actions/newListForm.js';
-// import { createList } from '../actions/myLists.js'
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 

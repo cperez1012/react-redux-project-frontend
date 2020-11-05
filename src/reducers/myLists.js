@@ -1,11 +1,3 @@
-// export default (state = [], action) => {
-//     switch (action.type) {
-//         case "SET_MY_LISTS":
-//             return action.lists
-//         default:
-//             return state
-//     }
-// }
 const initialState = []
 
 export default (state = initialState, action) => {
@@ -25,12 +17,3 @@ export default (state = initialState, action) => {
             return state
     }
 }
-
-// const LocalStorageReducer = createReducer<Store['localStorage']>(
-//     new LocalStorage(),
-//     {
-//       saveLocalStorageItem(state: LocalStorage, action: any) {
-//         return {...state, [action.payload.item]: action.payload.value}; // <= here
-//       },
-//     }
-// );

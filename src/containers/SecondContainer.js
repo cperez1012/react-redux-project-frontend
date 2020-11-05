@@ -1,13 +1,12 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-import MyFighters from '../components/MyLists.js';
+import Fighters from '../components/Fighters.js';
 
-const MainContainer = () => {
+const SecondContainer = () => {
     return (
-        <div className="MainContainer">
-           <MyLists/>
+        <div className="SecondContainer">
+           <Fighters/>
         </div>
     )
 }
 
-export default MainContainer;
+export default SecondContainer;

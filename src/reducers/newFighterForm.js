@@ -7,38 +7,26 @@ const initialState = {
     height: "",
     reach: "",
     status: "",
-    champion: "",
-    win: "",
-    loss: "",
-    draw: "",
-    ko: ""
+    champion: false,
+    win: 0,
+    loss: 0,
+    draw: 0,
+    ko: 0
 }
 
 export default (state=initialState, action) => {
-    switch (action.type) {
+    switch(action.type) {
         case "UPDATE_NEW_FIGHTER_FORM":
             const returnVal = {
                 ...state,
-                [action.formData.name]: action.formData.value,
-                [action.formData.alias]: action.formData.value,
-                [action.formData.nationality]: action.formData.value,
-                [action.formData.division]: action.formData.value,
-                [action.formData.stance]: action.formData.value,
-                [action.formData.height]: action.formData.value,
-                [action.formData.reach]: action.formData.value,
-                [action.formData.status]: action.formData.value,
-                [action.formData.champion]: action.formData.value,
-                [action.formData.win]: action.formData.value,
-                [action.formData.loss]: action.formData.value,
-                [action.formData.draw]: action.formData.value,
-                [action.formData.ko]: action.formData.value,
+                [action.formData.name]: action.formData.value
             }
         return returnVal
-        case "RESET_NEW_FIGHTER_FORM":
+        case "RESET_NEW_LIST_FORM":
             return initialState
-        case "SET_FIGHTER_DATA_FOR_EDIT":
+        case "SET_FORM_DATA_FOR_EDIT":
             return action.fighterFormData
-        default:
-            return state
+    default:
+        return state
     }
 }

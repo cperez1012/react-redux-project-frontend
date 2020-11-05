@@ -1,6 +1,6 @@
 import { resetLoginForm } from './loginForm.js';
-import { getMyFighters } from './myFighters.js';
 import { getMyLists, clearLists } from './myLists.js';
+import { setFighters } from './fighters.js'
 import { resetSignupForm } from './signupForm.js';
 
 // synchronous action creator
@@ -43,6 +43,7 @@ export const login  = (credentials, history) => {
                 } else {
                     dispatch(setCurrentUser(response.data))
                     dispatch(getMyLists())
+                    dispatch(setFighters())
                     dispatch(resetLoginForm())
                     history.push('/')
                 }
@@ -78,10 +79,8 @@ export const getCurrentUser = () => {
                     alert(response.error)
                 } else {
                     dispatch(setCurrentUser(response.data))
-                    // debugger
                     const userId = response.data.id
                     dispatch(getMyLists(userId))
-                    dispatch(getMyFighters(userId))
                 }
             })
             .catch(console.log)

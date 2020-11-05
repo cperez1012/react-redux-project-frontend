@@ -42,6 +42,7 @@ class App extends React.Component{
           <Route exact path='/lists' component={MyLists}/>
           <Route exact path='/lists/new' component={NewListFormWrapper}/>
           <Route exact path='/lists/:id' render={props =>{
+            debugger
             const list = lists.find(list => list.id === props.match.params.id)
             console.log(list)
             debugger

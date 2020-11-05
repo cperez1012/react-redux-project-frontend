@@ -2,10 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateLoginForm } from '../actions/loginForm.js';
 import { login } from '../actions/currentUser.js';
-// import loginForm from '../reducers/loginForm.js';
-
-
-// const Login = (props) => {
 
 const Login = ({ loginForm, updateLoginForm, login, history }) => {
 
