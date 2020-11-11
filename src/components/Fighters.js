@@ -1,31 +1,54 @@
 import React from 'react';
+// import fighters from '../reducers/fighters';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
-const Fighters = props => {
-
-    const fighterCard = props.fighters.length > 0 ?
-
-        props.fighters.map(f =>
-
-        (<ul>
-            <li>
-            {f.attributes.name}
-            </li>
-        </ul>))
-
-        :
-
-        null 
-
-        return (
-            fighterCard
-        )
-}
+const Fighters = ({ fighters }) => {
+    debugger
+    const fighterCards = fighters.length > 0 ?
     
-const mapStateToProps = state => {
+    fighters.map(f =>
+        <ol>
+            <li key={f.id}>
+                <label>Name: <br></br></label> 
+                <Link to={`/fighters/${f.id}`}>
+                {f.attributes.name}
+                </Link>
+                <br></br>
+                <label>Alias: </label><p>{f.attributes.alias}</p>
+                <label>Nationality: </label><p>{f.attributes.nationality}</p>
+                <label>Division: </label><p>{f.attributes.division}</p>
+                <label>Fighting Stance: </label><p>{f.attributes.stance}</p>
+                <label>Height: </label><p>{f.attributes.height}</p>
+                <label>Reach: </label><p>{f.attributes.reach}</p>
+                <label>Status: </label><p>{f.attributes.status}</p>
+                <label>Are they a current champion? </label><p>{f.attributes.champion}</p>
+                <label>Fighter's Record</label><br></br>
+                <label>W: </label><p>{f.attributes.win}</p>
+                <label>L: </label><p>{f.attributes.loss}</p>
+                <label>D: </label><p>{f.attributes.draw}</p>
+                <label>KO: </label><p>{f.attributes.ko}</p>
+                <labe>List: </labe><p>{f.attributes.listId}</p>
+
+            </li>
+        </ol>)
+
+    :
+    null
+
+
+
+    return (
+        fighterCards
+
+    )
+}
+
+const mapStateToProps = (state) => {
     return {
         fighters: state.fighters
     }
 }
+
 
 export default connect(mapStateToProps)(Fighters);

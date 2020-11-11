@@ -15,10 +15,11 @@ import MyLists from './components/MyLists.js';
 import Fighters from './components/Fighters.js';
 // import NewListForm from './components/NewListForm.js';
 import ListCard from './components/ListCard.js';
-// import FighterCard from './components/FighterCard.js'
+import FighterCard from './components/FighterCard.js';
 import NewListFormWrapper from './components/NewListFormWrapper.js';
 import EditListFormWrapper from './components/EditListFormWrapper.js';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import NewFighterForm from './components/NewFighterForm';
 
 
 // import currentUser from './reducers/currentUser';
@@ -30,7 +31,7 @@ class App extends React.Component{
     this.props.getCurrentUser()
   }
     render () {
-      const { loggedIn, lists } = this.props
+      const { loggedIn, lists, fighters } = this.props
       return (
 
       <div className="App">
@@ -41,20 +42,26 @@ class App extends React.Component{
           <Route exact path='/login' component={Login}/>
           <Route exact path='/lists' component={MyLists}/>
           <Route exact path='/lists/new' component={NewListFormWrapper}/>
-          <Route exact path='/lists/:id' render={props =>{
-            debugger
+          <Route exact path='/lists/:id' render={props => {
+
             const list = lists.find(list => list.id === props.match.params.id)
             console.log(list)
-            debugger
+            
             return <ListCard list={list} {...props}/>
             }
-          }/>,
+          }/>
           <Route exact path='/lists/:id/edit' render={props => {
             const list = lists.find(list => list.id === props.match.params.id)
             return <EditListFormWrapper list={list} {...props}/>
             }
           }/>
           <Route exact path='/fighters' component={Fighters}/>
+          <Route exact path='/fighters/new' component={NewFighterForm}/>
+          <Route exact path='/fighters/:id' render={props => {
+            const fighter = fighters.find(fighter => fighter.Id === props.match.params.id)
+            return <FighterCard fighter={fighter} {...props}/>
+            }
+          }/>
         </Switch>
       </div>
       

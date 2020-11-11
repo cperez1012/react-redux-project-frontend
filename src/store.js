@@ -6,6 +6,7 @@ import myLists from './reducers/myLists.js'
 import signupForm from './reducers/signupForm.js'
 import newListForm from './reducers/newListForm.js'
 import fighters from './reducers/fighters.js'
+import newFighterForm from './reducers/newFighterForm.js'
 import thunk from "redux-thunk";
 
 // displaying different syntax options here: lines 8 & 9
@@ -17,9 +18,10 @@ const reducer = combineReducers({
     myLists,
     signupForm,
     newListForm,
-    fighters
+    fighters, 
+    newFighterForm
 })
-
+debugger
 // Putting our middleware together
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

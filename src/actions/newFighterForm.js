@@ -1,4 +1,4 @@
-import FighterCard from "../components/FighterCard.js"
+// import FighterCard from "../components/FighterCard.js"
 
 // sync action
 export const updateNewFighterForm = (name, value) => {

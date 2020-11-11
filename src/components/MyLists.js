@@ -1,18 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+// import MyFighters from './MyFighters';
+// import fighters from '../reducers/fighters';
+// import Fighters from 'Fighters.js'
 
-const MyLists = props => {
- 
-    const listCards = props.lists.length > 0 ?
+const MyLists = ({ lists }) => {
+    debugger
+    const listCards = lists.length > 0 ? 
     
-    props.lists.map(l =>
-    (<ul> 
-        <li key={l.id}><Link to={`/lists/${l.id}`}>{l.attributes.title}</Link>
-        </li>
+    lists.map(l => 
+        (<div>  
+            <ol style={{ listStyleType: "upper-roman" }}>
+            <li key={l.id}><Link to={`/lists/${l.id}`}>{l.attributes.title}</Link>
+            {MyFighters}
+            </li>
 
-    </ul>)) 
-
+            </ol>
+        </div>))
+   
     :
     null
 
@@ -22,9 +28,21 @@ const MyLists = props => {
     )
 }
 
+const MyFighters = ({ fighters }) => {
+    fighters.map(f =>
+        (<div>
+            <ol>
+                <li key={f.id}>
+                    {f.attributes.name}
+                </li>
+            </ol>
+        </div>))
+}
 const mapStateToProps = state => {
+    debugger
     return {
-        lists: state.myLists
+        lists: state.myLists,
+        // fighters: state.fighters
     }
 }
 

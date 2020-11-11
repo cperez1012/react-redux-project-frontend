@@ -38,7 +38,7 @@ const NewListForm = ({ formData, updateNewListForm, userId, list, handleSubmit, 
             /><br></br>
             <Button 
                 type="submit"
-                // value={ editMode ? "Update List" : "Create List" }
+                value={ editMode ? "Update List" : "Create List" }
             >
             Create List</Button>
         </form>
