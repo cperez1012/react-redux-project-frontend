@@ -23,7 +23,7 @@ class EditFighterFormWrapper extends React.Component {
         updateFighter({
             ...formData,
             fighterId: fighter.id,
-            listId: fighter.attributes.list.id
+            // listId: fighter.attributes.list.id
         }, history)
     }
 

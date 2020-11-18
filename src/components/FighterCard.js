@@ -20,7 +20,7 @@ const FighterCard = ({ fighter }) =>  {
                    <p>{fighter.attributes.division}</p>
                    <label>Stance: </label>
                    <p>{fighter.attributes.stance}</p>
-                   <label>Heighte: </label>
+                   <label>Height: </label>
                    <p>{fighter.attributes.height}</p>
                    <label>Reach: </label>
                    <p>{fighter.attributes.reach}</p>
@@ -37,7 +37,7 @@ const FighterCard = ({ fighter }) =>  {
                    <label>KO: </label>
                    <p>{fighter.attributes.ko}</p>
                    <label>List: </label>
-                   <p>{fighter.attributes.list.title}</p>
+                   <p key={fighter.attributes.list.id}>{fighter.attributes.list.title}</p>
                 </li>
             </ul> 
         </div>    

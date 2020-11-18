@@ -171,7 +171,7 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                             value={listId}
                             onChange={handleChange}>
                             {lists.map(listItem => 
-                            <option value={listItem.attributes.listId}>{listItem.attributes.title}</option>)}
+                            <option value={listId}>{listItem.attributes.title}</option>)}
                         </select>
                         <br></br>             
                         <Button
