@@ -4,7 +4,7 @@
 export const updateNewFighterForm = (name, value) => {
     // console.log(name, value)
     const formData = { name, value }
-    debugger
+    // debugger
     return {
         type: "UPDATE_NEW_FIGHTER_FORM",
         formData

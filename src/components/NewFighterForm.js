@@ -1,56 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { updateNewFighterForm } from '../actions/newFighterForm.js';
 // import addFighter from '../reducers/fighters.js';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/esm/Button';
 
-class NewFighterForm extends Component {
-    constructor() {
-        super();
-        this.state = {
-            name: '',
-            alias: '',
-            nationality: '',
-            division: '',
-            stance: '',
-            height: '',
-            reach: '',
-            champion: false,
-            win: 0,
-            loss: 0,
-            draw: 0,
-            ko: 0
-        };
+
+const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode }) => {
+    
+    const {name, alias, nationality, division, stance, height, reach, status, champion, win, loss, draw, ko, listId} = formData
+
+    const handleChange = event => {
+
+        const { name, value } = event.target
+
+        debugger
+
+        
+        updateNewFighterForm(name, value)
     }
 
-    handleSubmit = event => {
-        event.preventDefault();
-        this.props.addFighter(this.state);
-
-    };
-    //preventDefault is a synthetic event to handle events from button, input and form elements.
-
-    handleChange = event => {
-        this.setState({
-            name: event.target.value
-        });
-    };
-
-    render() {
-        // debugger
-        return (
+    return (
             <div>
                 <h1>Add Fighter</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={event => {
+                    event.preventDefault()
+                    debugger
+                    handleSubmit(formData)
+                }}>
                     <ol>
                         <ul>
                         <label>Add Name: </label>
                         <br></br> 
                         <input
                             placeholder="Enter Name"
-                            type="name"
-                            onChange={this.handleChange}
-                            value={this.state.name} 
+                            name="name"
+                            onChange={handleChange}
+                            value={name} 
                         />
                         </ul>
                         <label>Add Alias: </label>
@@ -58,9 +43,9 @@ class NewFighterForm extends Component {
                         <ul>
                         <input
                             placeholder="Enter Alias"
-                            type="alias"
-                            onChange={this.handleChange}
-                            value={this.state.alias} 
+                            name="alias"
+                            onChange={handleChange}
+                            value={alias} 
                         />
                         </ul>
                         <label>Add Nationality: </label>
@@ -68,16 +53,16 @@ class NewFighterForm extends Component {
                         <ul>
                         <input
                             placeholder="Enter Nationality"
-                            type="nationality"
-                            onChange={this.handleChange}
-                            value={this.state.nationality} 
+                            name="nationality"
+                            onChange={handleChange}
+                            value={nationality} 
                         />
                         </ul>
                         <label>Choose Division: </label>
                         <br></br>
                         <select name="division"
-                            value={"" + this.state.division}
-                            onChange={this.handleChange}>
+                            value={"" + division}
+                            onChange={handleChange}>
                             <option  disabled>Choose the following weight division</option>
                             <option value="Flyweight">Flyweight</option>
                             <option value="Bantamweight">Bantamweight</option>
@@ -93,8 +78,8 @@ class NewFighterForm extends Component {
                         <label>Choose Fighter's Stance: </label>
                         <br></br>
                         <select name="stance"
-                            value={"" + this.state.stance}
-                            onChange={this.handleChange}>
+                            value={"" + stance}
+                            onChange={handleChange}>
                             <option disabled>Choose the following stance type</option>
                             <option value="Orthodox">Orthodox</option>
                             <option value="Southpaw">Southpaw</option>
@@ -104,80 +89,104 @@ class NewFighterForm extends Component {
                         <br></br>
                         <input
                             placeholder="Enter Height (i.e 5 ft 5 in)"
-                            type="height"
-                            onChange={this.handleChange}
-                            value={this.state.height}
+                            name="height"
+                            onChange={handleChange}
+                            value={height}
                         />
                         <br></br>
                         <label>Add Reach: </label>
                         <br></br>
                         <input
                             placeholder="Enter Reach (i.e 68 in)"
-                            type="reach"
-                            onChange={this.handleChange}
-                            value={this.state.reach}
+                            name="reach"
+                            onChange={handleChange}
+                            value={reach}
                         />
+                        <br></br>
+                        <label>Are they still fighting?</label>
+                        <br></br>
+                        <select name="status"
+                            value={"" + status}
+                            onChange={handleChange}>
+                            <option disabled>Choose whether fighter is still competing</option>
+                            <option value="inactive">inactive</option>
+                            <option value="active">active</option>
+                        </select>
                         <br></br>
                         <label>Check if they ever were a World Champion</label>
                         <input
                             type="checkbox"
+                            name="champion"
                             defaultChecked={false}
-                            value={this.state.champion}
+                            value={champion}
                         />
                         <br></br>
                         <label>W:</label>
                         <input
                             placeholder="Enter number of wins"
+                            name="win"
                             type="number"
                             pattern="[0-200]*"
                             inputMode="numeric"
-                            value={this.state.win}
+                            onChange={handleChange}
+                            value={win}
                         />
                         <br></br>
                         <label>L:</label>
                         <input
                             placeholder="Enter number of losses"
+                            name="loss"
                             type="number"
                             pattern="[0-200]*"
                             inputMode="numeric"
-                            value={this.state.loss}
+                            onChange={handleChange}
+                            value={loss}
                         />
                         <br></br>
                         <label>D:</label>
                         <input
                             placeholder="Enter number of draws"
+                            name="draw"
                             type="number"
                             pattern="[0-200]*"
                             inputMode="numeric"
-                            value={this.state.draw}
+                            onChange={handleChange}
+                            value={draw}
                         />
                         <br></br>
                         <label>KO:</label>
                         <input
                             placeholder="Enter number of KO"
+                            name="ko"
                             type="number"
                             pattern="[0-200]*"
                             inputMode="numeric"
-                            value={this.state.draw}
+                            onChange={handleChange}
+                            value={ko}
                         />
-                        <br></br>               
+                        <br></br>  
+                        <select name="list"
+                            value={listId}
+                            onChange={handleChange}
+                        >
+                        <option disabled>Choose the following List to add the fighter to</option>
+                        <option value="Orthodox">Orthodox</option>
+                        <option value="Southpaw">Southpaw</option>   
+                        </select>
+                        <br></br>             
                         <Button
                             type="submit"
+                            value={ editMode ? "Update Fighter" : "Create Fighter" }
                         >Create Fighter</Button>
                     </ol>
                 </form>
-            </div>
-        );
-    }
+            </div>       
+    )
 }
-
-// const mapDispatchToProps = dispatch => ({
-//     addFighter: formData => dispatch({ type: 'ADD_FIGHTER', payload: formData })
-// });
-
 const mapStateToProps = state => {
+    // debugger
     return {
-        fighters: state.newFighterForm
+        formData: state.newFighterForm
     }
 };
 

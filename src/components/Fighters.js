@@ -28,7 +28,7 @@ const Fighters = ({ fighters }) => {
                 <label>L: </label><p>{f.attributes.loss}</p>
                 <label>D: </label><p>{f.attributes.draw}</p>
                 <label>KO: </label><p>{f.attributes.ko}</p>
-                <labe>List: </labe><p>{f.attributes.listId}</p>
+                <label>List: </label><p>{f.attributes.listId}</p>
 
             </li>
         </ol>)

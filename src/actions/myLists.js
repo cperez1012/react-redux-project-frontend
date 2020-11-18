@@ -2,6 +2,7 @@
 import { setFighters } from './fighters.js'
 // import Fighters from '../components/Fighters.js'
 import { resetListForm } from './newListForm.js'
+// import normalize from 'jsonapi-normalizer';
 
 //synchronous actions
 
@@ -60,7 +61,7 @@ export const getMyLists = () => {
                     console.log(response)
                     debugger
                     dispatch(setMyLists(response.data))
-                    dispatch(setFighters(response.included))
+                    // dispatch(setFighters(response.included))
                 }
             })
             .catch(console.log)    

@@ -1,0 +1,16 @@
+import React from 'react';
+import NewFighterForm from './NewFighterForm.js';
+import { createFighter } from '../actions/fighter.js';
+import { connect } from 'react-redux';
+
+const NewFighterFormWrapper = ({ history, createFighter }) => {
+
+    const handleSubmit = (formData) => {
+        createFighter({
+            ...formData
+        }, history)
+    }
+    return <NewFighterForm history={history} handleSubmit={handleSubmit} />
+};
+
+export default connect(null, { createFighter })(NewFighterFormWrapper);

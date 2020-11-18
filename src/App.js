@@ -19,7 +19,9 @@ import FighterCard from './components/FighterCard.js';
 import NewListFormWrapper from './components/NewListFormWrapper.js';
 import EditListFormWrapper from './components/EditListFormWrapper.js';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import NewFighterForm from './components/NewFighterForm';
+// import NewFighterForm from './components/NewFighterForm';
+import NewFighterFormWrapper from './components/NewFighterFormWrapper';
+import EditFighterFormWrapper from './components/EditFighterFormWrapper.js';
 
 
 // import currentUser from './reducers/currentUser';
@@ -56,12 +58,17 @@ class App extends React.Component{
             }
           }/>
           <Route exact path='/fighters' component={Fighters}/>
-          <Route exact path='/fighters/new' component={NewFighterForm}/>
+          <Route exact path='/fighters/new' component={NewFighterFormWrapper}/>
           <Route exact path='/fighters/:id' render={props => {
-            const fighter = fighters.find(fighter => fighter.Id === props.match.params.id)
+
+          const fighter = fighters.find(fighter => fighter.id === props.match.params.id)  
+
             return <FighterCard fighter={fighter} {...props}/>
-            }
-          }/>
+          }}/>
+          <Route exact path='/fighters/:id/edit' render={props => {
+          const fighter = fighters.find(fighter => fighter.id === props.match.params.id)
+            return <EditFighterFormWrapper fighter={fighter} {...props}/>  
+          }}/>
         </Switch>
       </div>
       

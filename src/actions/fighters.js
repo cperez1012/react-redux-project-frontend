@@ -1,4 +1,5 @@
 import { resetFighterForm } from './newFighterForm.js'
+// import normalize from 'jsonapi-normalizer';
 //synchronous actions
 
 export const setFighters = fighters => {
@@ -65,6 +66,8 @@ export const clearFighters = () => {
 }
 
 export const createFighter = ( fighterData, history ) => {
+
+    debugger
 
     return dispatch => {
         const remitFighterData = {
