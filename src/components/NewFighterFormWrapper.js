@@ -1,13 +1,14 @@
 import React from 'react';
 import NewFighterForm from './NewFighterForm.js';
-import { createFighter } from '../actions/fighter.js';
+import { createFighter } from '../actions/fighters.js';
 import { connect } from 'react-redux';
 
 const NewFighterFormWrapper = ({ history, createFighter }) => {
 
-    const handleSubmit = (formData) => {
+    const handleSubmit = (formData, listId) => {
         createFighter({
-            ...formData
+            ...formData,
+            listId
         }, history)
     }
     return <NewFighterForm history={history} handleSubmit={handleSubmit} />
