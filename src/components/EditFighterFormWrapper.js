@@ -1,16 +1,16 @@
 import React from 'react';
 import NewFighterForm from './NewFighterForm.js';
-import { deleteFighter, updateFighter } from '../actions/fighters.js';
-import { setFormDataForEdit, resetFighterForm } from '../actions/newFighterForm.js';
+import { updateFighter, deleteFighter } from '../actions/fighters.js';
+import { setFighterDataForEdit, resetFighterForm } from '../actions/newFighterForm.js';
 import { connect } from 'react-redux';
 
 class EditFighterFormWrapper extends React.Component {
     componentDidMount() {
-        this.props.fighter && this.props.setFormDataForEdit(this.props.fighter)
+        this.props.fighter && this.props.setFighterDataForEdit(this.props.fighter)
     }
 
     componentDidUpdate(prevProps) {
-        this.props.fighter && !prevProps.fighter && this.props.setFormDataForEdit(this.props.fighter)
+        this.props.fighter && !prevProps.fighter && this.props.setFighterDataForEdit(this.props.fighter)
     }
 
     componentWillMount() {
@@ -22,7 +22,8 @@ class EditFighterFormWrapper extends React.Component {
         debugger
         updateFighter({
             ...formData,
-            fighterId: fighter.id
+            fighterId: fighter.id,
+            listId: fighter.attributes.list.id
         }, history)
     }
 
@@ -37,4 +38,4 @@ class EditFighterFormWrapper extends React.Component {
     }
 }
 
-export default connect(null, { updateFighter, setFormDataForEdit, resetFighterForm, deleteFighter })(EditFighterFormWrapper);
+export default connect(null, { updateFighter, setFighterDataForEdit, resetFighterForm, deleteFighter })(EditFighterFormWrapper);
