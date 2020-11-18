@@ -1,10 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import fighters from '../reducers/fighters';
-// import MyFighters from './MyFighters';
-// import fighters from '../reducers/fighters';
-// import { fighters } from 'Fighters.js';
 
 const MyLists = ({ lists }) => {
    
@@ -33,8 +29,7 @@ const MyLists = ({ lists }) => {
 const mapStateToProps = state => {
     debugger
     return {
-        lists: state.myLists,
-        // fighters: state.fighters
+        lists: state.myLists
     }
 }
 
