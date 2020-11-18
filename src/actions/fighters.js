@@ -84,7 +84,7 @@ export const createFighter = ( fighterData, history ) => {
             loss: fighterData.loss,
             draw: fighterData.draw,
             ko: fighterData.ko,
-            listId: fighterData.list.id
+            listId: fighterData.listId
         }
 
     return fetch( `http://localhost:3001/api/v1/users/:user/fighters`, {
@@ -127,7 +127,7 @@ export const updateFighter = ( fighterData, history ) => {
             loss: fighterData.loss,
             draw: fighterData.draw,
             ko: fighterData.ko,
-            listId: fighterData.list.id
+            listId: fighterData.listId
         }
         debugger
 
