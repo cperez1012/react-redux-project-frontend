@@ -1,16 +1,13 @@
 import React from 'react';
-// import fighters from '../reducers/fighters';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 const Fighters = ({ fighters }) => {
-    debugger
-    const fighterCards = fighters.length > 0 ?
-    
-    fighters.map(f =>
+
+    const fighterCards = fighters.map(f =>
         <ol>
             <li key={f.id}>
-                <label>Name: <br></br></label> 
+                <label>Name: <br></br></label>
                 <Link to={`/fighters/${f.id}`}>
                 {f.attributes.name}
                 </Link>
@@ -28,19 +25,13 @@ const Fighters = ({ fighters }) => {
                 <label>L: </label><p>{f.attributes.loss}</p>
                 <label>D: </label><p>{f.attributes.draw}</p>
                 <label>KO: </label><p>{f.attributes.ko}</p>
-                <label>List: </label><p>{f.attributes.listId}</p>
+                <label>List: </label><p>{f.attributes.list.title}</p>
 
             </li>
         </ol>)
 
-    :
-    null
-
-
-
     return (
         fighterCards
-
     )
 }
 
