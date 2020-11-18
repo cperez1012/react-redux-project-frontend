@@ -1,8 +1,4 @@
-// import fighters from '../reducers/fighters.js'
-import { setFighters } from './fighters.js'
-// import Fighters from '../components/Fighters.js'
 import { resetListForm } from './newListForm.js'
-// import normalize from 'jsonapi-normalizer';
 
 //synchronous actions
 
@@ -14,13 +10,6 @@ export const setMyLists = lists => {
         lists
     }
 }
-
-// export const setMyFighters = fighters => {
-//     return {
-//         type: "SET_MY_FIGHTERS",
-//         fighters
-//     }
-// }
 
 export const addList = list => {
     return {
@@ -61,7 +50,6 @@ export const getMyLists = () => {
                     console.log(response)
                     debugger
                     dispatch(setMyLists(response.data))
-                    // dispatch(setFighters(response.included))
                 }
             })
             .catch(console.log)    
