@@ -4,7 +4,7 @@ import { resetFighterForm } from './newFighterForm.js'
 
 export const setFighters = fighters => {
 
-    debugger
+    // debugger
     return {
         type: "SET_FIGHTERS",
         fighters
@@ -35,7 +35,7 @@ export const deleteFighterSuccess = fighterId => {
 //asynchronous actions
 export const getFighters = () => {
     return dispatch => {
-        debugger
+        // debugger
 
         return fetch(`http://localhost:3001/api/v1/users/:user/fighters`, {
             credentials: "include",
@@ -50,7 +50,7 @@ export const getFighters = () => {
                     alert(response.error)
                 } else {
                     console.log(response.data)
-                    debugger
+                    // debugger
                     
                     dispatch(setFighters(response.data))
                 }
@@ -71,7 +71,20 @@ export const createFighter = ( fighterData, history ) => {
 
     return dispatch => {
         const remitFighterData = {
-            name: fighterData.name
+            name: fighterData.name,
+            alias: fighterData.alias,
+            nationality: fighterData.nationality,
+            division: fighterData.division,
+            stance: fighterData.stance,
+            height: fighterData.height,
+            reach: fighterData.reach,
+            status: fighterData.status,
+            champion: fighterData.champion,
+            win: fighterData.win,
+            loss: fighterData.loss,
+            draw: fighterData.draw,
+            ko: fighterData.ko,
+            listId: fighterData.list.id
         }
 
     return fetch( `http://localhost:3001/api/v1/users/:user/fighters`, {
@@ -101,8 +114,22 @@ export const updateFighter = ( fighterData, history ) => {
     return dispatch => {
 
         const remitFighterData = {
-            name: fighterData.name
+            name: fighterData.name,
+            alias: fighterData.alias,
+            nationality: fighterData.nationality,
+            division: fighterData.division,
+            stance: fighterData.stance,
+            height: fighterData.height,
+            reach: fighterData.reach,
+            status: fighterData.status,
+            champion: fighterData.champion,
+            win: fighterData.win,
+            loss: fighterData.loss,
+            draw: fighterData.draw,
+            ko: fighterData.ko,
+            listId: fighterData.list.id
         }
+        debugger
 
         return fetch( `http://localhost:3001/api/v1/users/:user/fighters/${fighterData.fighterId}`,{
             credentials: "include",
@@ -139,7 +166,7 @@ export const deleteFighter = ( fighterId, history ) => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    dispatch(deleteFighterSuccess(response.data))
+                    dispatch(deleteFighterSuccess(fighterId))
                     history.push(`/fighters`)
                 }
             })
