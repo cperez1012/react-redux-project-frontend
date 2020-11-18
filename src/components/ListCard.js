@@ -1,16 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import fighters from '../reducers/fighters';
-// import fighters from '../reducers/fighters';
 
 const ListCard = ({ list }) =>  {
 
     console.log(list)
     console.log(list.attributes.fighters)
 
-    // const boxer = list.attributes.fighters.map(fighter => 
-    //     (fighter.attributes.name))
     debugger
     return (
         <div>
@@ -20,6 +16,18 @@ const ListCard = ({ list }) =>  {
                 <li>
                    <p>{fighter.name}</p>
                    <p>{fighter.alias}</p>
+                   <p>{fighter.nationality}</p>
+                   <p>{fighter.division}</p>
+                   <p>{fighter.stance}</p>
+                   <p>{fighter.height}</p>
+                   <p>{fighter.reach}</p>
+                   <p>{fighter.status}</p>
+                   <p>{fighter.champion}</p>
+                   <p>{fighter.win}</p>
+                   <p>{fighter.loss}</p>
+                   <p>{fighter.draw}</p>
+                   <p>{fighter.ko}</p>
+
                 </li> 
             )}</ol>
         </div>    
