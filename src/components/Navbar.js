@@ -13,7 +13,7 @@ const Navbar = ({ currentUser, loggedIn }) => {
             <NavLink exact activeClassName="active" to="/fighters/new" > Add New Fighters</NavLink>
             { loggedIn ? <><p id="loggedin">Logged In as {currentUser.attributes.username}</p>    
             <img 
-            src={currentUser.attributes.image_url} 
+            src={currentUser.attributes.imageUrl} 
             alt="profile pic"
             style={{ width: 36 }} 
             />
