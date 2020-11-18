@@ -1,11 +1,9 @@
 import React from 'react';
 import { updateNewFighterForm } from '../actions/newFighterForm.js';
-// import addFighter from '../reducers/fighters.js';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/esm/Button';
 
-
-const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode }) => {
+const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode, lists }) => {
     
     const {name, alias, nationality, division, stance, height, reach, status, champion, win, loss, draw, ko, listId} = formData
 
@@ -13,10 +11,11 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
 
         const { name, value } = event.target
 
-        debugger
+        
 
         
         updateNewFighterForm(name, value)
+        debugger
     }
 
     return (
@@ -119,6 +118,7 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                             name="champion"
                             defaultChecked={false}
                             value={champion}
+                            onChange={handleChange}                  
                         />
                         <br></br>
                         <label>W:</label>
@@ -164,14 +164,14 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                             onChange={handleChange}
                             value={ko}
                         />
-                        <br></br>  
-                        <select name="list"
+                        <br></br>
+                        <label>List for Fighter: </label>
+                        <br></br>
+                        <select key={listId} name="listId"
                             value={listId}
-                            onChange={handleChange}
-                        >
-                        <option disabled>Choose the following List to add the fighter to</option>
-                        <option value="Orthodox">Orthodox</option>
-                        <option value="Southpaw">Southpaw</option>   
+                            onChange={handleChange}>
+                            {lists.map(listItem => 
+                            <option value={listItem.attributes.listId}>{listItem.attributes.title}</option>)}
                         </select>
                         <br></br>             
                         <Button
@@ -184,11 +184,12 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
     )
 }
 const mapStateToProps = state => {
-    // debugger
+    debugger
     return {
-        formData: state.newFighterForm
+        formData: state.newFighterForm,
+        lists: state.myLists
+
     }
 };
 
-// export default connect(mapDispatchToProps)(NewFighterForm)
 export default connect(mapStateToProps, { updateNewFighterForm })(NewFighterForm)
