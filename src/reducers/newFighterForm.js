@@ -11,7 +11,8 @@ const initialState = {
     win: 0,
     loss: 0,
     draw: 0,
-    ko: 0
+    ko: 0,
+    listId: 0
 }
 
 export default (state=initialState, action) => {
@@ -22,9 +23,9 @@ export default (state=initialState, action) => {
                 [action.formData.name]: action.formData.value
             }
         return returnVal
-        case "RESET_NEW_LIST_FORM":
+        case "RESET_NEW_FIGHTER_FORM":
             return initialState
-        case "SET_FORM_DATA_FOR_EDIT":
+        case "SET_FIGHTER_DATA_FOR_EDIT":
             return action.fighterFormData
     default:
         return state
