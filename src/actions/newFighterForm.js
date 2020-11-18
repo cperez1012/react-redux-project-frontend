@@ -1,8 +1,6 @@
-// import FighterCard from "../components/FighterCard.js"
-
 // sync action
 export const updateNewFighterForm = (name, value) => {
-    // console.log(name, value)
+    
     const formData = { name, value }
     // debugger
     return {
@@ -33,6 +31,7 @@ export const setFighterDataForEdit = fighter => {
         loss:  fighter.attributes.loss,
         draw:  fighter.attributes.draw,
         ko:  fighter.attributes.ko,
+        listId: fighter.attributes.list.id
 
     }
     return {
