@@ -5,19 +5,20 @@ import Button from 'react-bootstrap/esm/Button';
 
 const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode, lists }) => {
     
-    const {name, alias, nationality, division, stance, height, reach, status, champion, win, loss, draw, ko, listId} = formData
+    const {name, alias, nationality, division, stance, height, reach, status, champion, win, loss, draw, ko, list_id} = formData
 
     const handleChange = event => {
-
-        const { name, value } = event.target
-
-        
-
+        debugger
+        const target = event.target
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name
+        console.log(formData)
         
         updateNewFighterForm(name, value)
         debugger
     }
 
+    console.log(lists)
     return (
             <div>
                 <h1>Add Fighter</h1>
@@ -77,7 +78,7 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                         <label>Choose Fighter's Stance: </label>
                         <br></br>
                         <select name="stance"
-                            value={"" + stance}
+                            value={stance}
                             onChange={handleChange}>
                             <option disabled>Choose the following stance type</option>
                             <option value="Orthodox">Orthodox</option>
@@ -105,7 +106,8 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                         <label>Are they still fighting?</label>
                         <br></br>
                         <select name="status"
-                            value={"" + status}
+                            // value={status}
+                            defaultValue={status}
                             onChange={handleChange}>
                             <option disabled>Choose whether fighter is still competing</option>
                             <option value="inactive">inactive</option>
@@ -116,8 +118,7 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                         <input
                             type="checkbox"
                             name="champion"
-                            defaultChecked={false}
-                            value={champion}
+                            checked={champion}
                             onChange={handleChange}                  
                         />
                         <br></br>
@@ -167,11 +168,13 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                         <br></br>
                         <label>List for Fighter: </label>
                         <br></br>
-                        <select key={listId} name="listId"
-                            value={listId}
+                        <select name="list_id"
+                            value={list_id}
                             onChange={handleChange}>
-                            {lists.map(listItem => 
-                            <option value={listId}>{listItem.attributes.title}</option>)}
+                            
+                            {lists.map(list => 
+                            
+                            <option key={list.id} value={list.id}>{list.attributes.title}</option>)}
                         </select>
                         <br></br>             
                         <Button
