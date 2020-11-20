@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const FighterCard = ({ fighter }) =>  {
 
     console.log(fighter)
-    debugger
+
     return (
         <div>
             <h1>{fighter.attributes.name}</h1>
@@ -26,8 +26,8 @@ const FighterCard = ({ fighter }) =>  {
                    <p>{fighter.attributes.reach}</p>
                    <label>Status: </label>
                    <p>{fighter.attributes.status}</p>
-                   <label>Champion: </label>
-                   <p>{fighter.attributes.champion}</p>
+                   <label>Are they a current champion? </label>
+                   <p>{fighter.attributes.champion ? "Yes" : "No"}</p>
                    <label>Win: </label>
                    <p>{fighter.attributes.win}</p>
                    <label>Loss: </label>
@@ -44,11 +44,12 @@ const FighterCard = ({ fighter }) =>  {
     ) 
 }
 
-const mapStateToProps = state => {
-    debugger
-    return {
-        fighters: state.fighters
-    }
-}
+// const mapStateToProps = state => {
+//     debugger
+//     return {
+//         fighters: state.fighters
+//     }
+// }
 
-export default connect(mapStateToProps)(FighterCard);
+// export default connect(mapStateToProps)(FighterCard);
+export default connect(null) (FighterCard);
