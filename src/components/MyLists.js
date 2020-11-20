@@ -6,16 +6,16 @@ const MyLists = ({ lists }) => {
    
     const listCards = lists.length > 0 ? 
     
-    lists.map(l => 
-        (<div>  
-            <ol style={{ listStyleType: "upper-roman" }}>
-                <ul key={l.id}>
-                    <Link to={`/lists/${l.id}`}>
-                    <p>{l.attributes.title}</p>
+    lists.map(list => 
+        ( 
+            <ol  key={list.id} style={{ listStyleType: "upper-roman" }}>
+                <ul>
+                    <Link to={`/lists/${list.id}`}>
+                    <p>{list.attributes.title}</p>
                     </Link>
                 </ul>
             </ol>
-        </div>))
+        ))
    
     :
     null
