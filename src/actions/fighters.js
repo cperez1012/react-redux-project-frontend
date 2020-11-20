@@ -1,5 +1,4 @@
-import { resetFighterForm } from './newFighterForm.js'
-// import normalize from 'jsonapi-normalizer';
+import { resetFighterForm } from './newFighterForm.js';
 //synchronous actions
 
 export const setFighters = fighters => {
@@ -13,7 +12,7 @@ export const setFighters = fighters => {
 
 export const addFighter = fighter => {
     return {
-        type: "ADD_FIGHTER",
+        type: "ADD_FIGHTERS",
         fighter
     }
 }
@@ -37,7 +36,7 @@ export const getFighters = () => {
     return dispatch => {
         // debugger
 
-        return fetch(`http://localhost:3001/api/v1/users/:user/fighters`, {
+        return fetch(`http://localhost:3001/api/v1/users/:userId/fighters`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -67,27 +66,29 @@ export const clearFighters = () => {
 
 export const createFighter = ( fighterData, history ) => {
 
-    debugger
+    // debugger
 
-    return dispatch => {
-        const remitFighterData = {
-            name: fighterData.name,
-            alias: fighterData.alias,
-            nationality: fighterData.nationality,
-            division: fighterData.division,
-            stance: fighterData.stance,
-            height: fighterData.height,
-            reach: fighterData.reach,
-            status: fighterData.status,
-            champion: fighterData.champion,
-            win: fighterData.win,
-            loss: fighterData.loss,
-            draw: fighterData.draw,
-            ko: fighterData.ko,
-            listId: fighterData.listId
-        }
+    return (dispatch, getState) => {
+        // const remitFighterData = {
+        //     name: fighterData.name,
+        //     alias: fighterData.alias,
+        //     nationality: fighterData.nationality,
+        //     division: fighterData.division,
+        //     stance: fighterData.stance,
+        //     height: fighterData.height,
+        //     reach: fighterData.reach,
+        //     status: fighterData.status,
+        //     champion: fighterData.champion,
+        //     win: fighterData.win,
+        //     loss: fighterData.loss,
+        //     draw: fighterData.draw,
+        //     ko: fighterData.ko,
+        //     listId: fighterData.listId
+        // }
+        const remitFighterData = getState().newFighterForm
+        debugger
 
-    return fetch( `http://localhost:3001/api/v1/users/:user/fighters`, {
+    return fetch( `http://localhost:3001/api/v1/users/:userId/fighters`, {
         credentials: "include",
         method: "POST",
         headers: {
@@ -100,8 +101,10 @@ export const createFighter = ( fighterData, history ) => {
             if (response.error) {
                 alert(response.error) 
                 } else {
+                    debugger
                     dispatch(addFighter(response.data))
                     dispatch(resetFighterForm())
+                    // debugger
                     history.push(`/fighters/${response.data.id}`)
             }
         })
@@ -127,11 +130,11 @@ export const updateFighter = ( fighterData, history ) => {
             loss: fighterData.loss,
             draw: fighterData.draw,
             ko: fighterData.ko,
-            listId: fighterData.listId
+            listId: fighterData.list_id
         }
         debugger
 
-        return fetch( `http://localhost:3001/api/v1/users/:user/fighters/${fighterData.fighterId}`,{
+        return fetch( `http://localhost:3001/api/v1/users/:userId/fighters/${fighterData.fighterId}`,{
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -145,6 +148,7 @@ export const updateFighter = ( fighterData, history ) => {
                     alert(response.error)
                 } else {
                     dispatch(updateFighterSuccess(response.data))
+                    dispatch(resetFighterForm())
                     history.push(`/fighters/${response.data.id}`)
                 }
             })
@@ -154,7 +158,7 @@ export const updateFighter = ( fighterData, history ) => {
 
 export const deleteFighter = ( fighterId, history ) => {
     return dispatch => {
-        return fetch( `http://localhost:3001/api/v1/users/:user/fighters/${fighterId}`, {
+        return fetch( `http://localhost:3001/api/v1/users/:userId/fighters/${fighterId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {
@@ -167,6 +171,7 @@ export const deleteFighter = ( fighterId, history ) => {
                     alert(response.error)
                 } else {
                     dispatch(deleteFighterSuccess(fighterId))
+                    dispatch(resetFighterForm())
                     history.push(`/fighters`)
                 }
             })
