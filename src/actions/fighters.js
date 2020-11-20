@@ -101,10 +101,8 @@ export const createFighter = ( fighterData, history ) => {
             if (response.error) {
                 alert(response.error) 
                 } else {
-                    debugger
                     dispatch(addFighter(response.data))
                     dispatch(resetFighterForm())
-                    // debugger
                     history.push(`/fighters/${response.data.id}`)
             }
         })
