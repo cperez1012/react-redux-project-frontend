@@ -13,7 +13,7 @@ export const setMyLists = lists => {
 
 export const addList = list => {
     return {
-        type: "ADD_LIST",
+        type: "ADD_LISTS",
         list
     }
 }
@@ -35,7 +35,7 @@ export const deleteListSuccess = listId => {
 //asynchronous actions
 export const getMyLists = () => {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/v1/users/:user/lists`, {
+        return fetch(`http://localhost:3001/api/v1/users/:userId/lists`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -48,7 +48,6 @@ export const getMyLists = () => {
                     alert(response.error)
                 } else {
                     console.log(response)
-                    debugger
                     dispatch(setMyLists(response.data))
                 }
             })
@@ -68,7 +67,7 @@ export const createList = ( listData, history ) => {
             title: listData.title
         }
 
-    return fetch(`http://localhost:3001/api/v1/users/:user/lists`, {
+    return fetch(`http://localhost:3001/api/v1/users/:userId/lists`, {
         credentials: "include",
         method: "POST",
         headers: {
@@ -97,7 +96,7 @@ export const updateList = ( listData, history ) => {
             title: listData.title
         }
 
-        return fetch(`http://localhost:3001/api/v1/users/:user/lists/${listData.listId}`,{
+        return fetch(`http://localhost:3001/api/v1/users/:userId/lists/${listData.listId}`,{
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -120,7 +119,7 @@ export const updateList = ( listData, history ) => {
 
 export const deleteList = ( listId, history ) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/v1/users/:user/lists/${listId}`, {
+        return fetch(`http://localhost:3001/api/v1/users/:userId/lists/${listId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {
