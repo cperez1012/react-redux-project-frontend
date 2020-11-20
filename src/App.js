@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './image/logo.png'
-// import logo from './logo.svg';
+import logo from './image/logo.png';
 import './App.css';
 // Replaced Login and Logout componenets with Navbar
 import Navbar from './components/Navbar.js';
-// import MainContainer from './components/MainContainer.js';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
-// import Logout from './components/Logout.js';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import Signup from './components/Signup.js';
 import MyLists from './components/MyLists.js';
 import Fighters from './components/Fighters.js';
-// import NewListForm from './components/NewListForm.js';
 import ListCard from './components/ListCard.js';
 import FighterCard from './components/FighterCard.js';
 import NewListFormWrapper from './components/NewListFormWrapper.js';
 import EditListFormWrapper from './components/EditListFormWrapper.js';
 import { Route, Switch, withRouter } from 'react-router-dom';
-// import NewFighterForm from './components/NewFighterForm';
 import NewFighterFormWrapper from './components/NewFighterFormWrapper';
 import EditFighterFormWrapper from './components/EditFighterFormWrapper.js';
 
@@ -54,19 +49,21 @@ class App extends React.Component{
           }/>
           <Route exact path='/lists/:id/edit' render={props => {
             const list = lists.find(list => list.id === props.match.params.id)
+
             return <EditListFormWrapper list={list} {...props}/>
             }
           }/>
           <Route exact path='/fighters' component={Fighters}/>
           <Route exact path='/fighters/new' component={NewFighterFormWrapper}/>
           <Route exact path='/fighters/:id' render={props => {
-
+          
           const fighter = fighters.find(fighter => fighter.id === props.match.params.id)  
 
             return <FighterCard fighter={fighter} {...props}/>
           }}/>
           <Route exact path='/fighters/:id/edit' render={props => {
           const fighter = fighters.find(fighter => fighter.id === props.match.params.id)
+
             return <EditFighterFormWrapper fighter={fighter} {...props}/>  
           }}/>
         </Switch>
