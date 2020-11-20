@@ -19,7 +19,7 @@ const Fighters = ({ fighters }) => {
                 <label>Height: </label><p>{fighter.attributes.height}</p>
                 <label>Reach: </label><p>{fighter.attributes.reach}</p>
                 <label>Status: </label><p>{fighter.attributes.status}</p>
-                <label>Are they a current champion? </label><p>{fighter.attributes.champion}</p>
+                <label>Are they a current champion? </label><p>{fighter.attributes.champion ? "Yes" : "No"}</p>
                 <label>Fighter's Record</label><br></br>
                 <label>W: </label><p>{fighter.attributes.win}</p>
                 <label>L: </label><p>{fighter.attributes.loss}</p>
