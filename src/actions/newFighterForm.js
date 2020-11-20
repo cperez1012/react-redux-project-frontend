@@ -16,7 +16,7 @@ export const resetFighterForm = () => {
 }
 
 export const setFighterDataForEdit = fighter => {
-    debugger
+   
     const fighterFormData = {
         name:  fighter.attributes.name,
         alias:  fighter.attributes.alias,
@@ -31,7 +31,7 @@ export const setFighterDataForEdit = fighter => {
         loss:  fighter.attributes.loss,
         draw:  fighter.attributes.draw,
         ko:  fighter.attributes.ko,
-        listId: fighter.attributes.list.id
+        listId: fighter.attributes.listId
 
     }
     return {
