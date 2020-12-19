@@ -3,7 +3,6 @@ const initialState = []
 export default (state = initialState, action) => {  
     switch (action.type) {
         case "SET_FIGHTERS":
-            debugger
            return action.fighters
         case "ADD_FIGHTERS":
             return state.concat(action.fighter)

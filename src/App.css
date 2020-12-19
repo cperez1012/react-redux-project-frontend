@@ -53,3 +53,18 @@
   width: 370px;
   margin-top: 50px;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  color: #333;
+  }
+  
+  .is-emphasized {
+  font-weight: bold;
+  color: #000;
+}

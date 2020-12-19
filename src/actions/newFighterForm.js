@@ -2,7 +2,7 @@
 export const updateNewFighterForm = (name, value) => {
     
     const formData = { name, value }
-    // debugger
+
     return {
         type: "UPDATE_NEW_FIGHTER_FORM",
         formData

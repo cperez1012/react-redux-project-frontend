@@ -7,19 +7,22 @@ const Navbar = ({ currentUser, loggedIn }) => {
 
     return (
         <div className="Navbar">
-            <NavLink exact activeClassName="active" to="/lists" >My Lists    | </NavLink>
-            <NavLink exact activeClassName="active" to="/lists/new" >New List    |</NavLink>
-            <NavLink exact activeClassName="active" to="/fighters" > Fighters    |</NavLink>
-            <NavLink exact activeClassName="active" to="/fighters/new" > Add New Fighters</NavLink>
-            { loggedIn ? <><p id="loggedin">Logged In as {currentUser.attributes.username}</p>    
-            <img 
-            src={currentUser.attributes.imageUrl} 
-            alt="profile pic"
-            style={{ width: 36 }} 
-            />
-            <p>{currentUser.attributes.bio}</p>
-            <Logout/></>  : null }
-            
+            <ul>
+                <li>
+                    <NavLink exact activeClassName="active" to="/lists" >My Lists    | </NavLink>
+                    <NavLink exact activeClassName="active" to="/lists/new" >New List    |</NavLink>
+                    <NavLink exact activeClassName="active" to="/fighters" > Fighters    |</NavLink>
+                    <NavLink exact activeClassName="active" to="/fighters/new" > Add New Fighters</NavLink>
+                    { loggedIn ? <><p id="loggedin">Logged In as {currentUser.attributes.username}</p>    
+                    <img 
+                    src={currentUser.attributes.imageUrl} 
+                    alt="profile pic"
+                    style={{ width: 36 }} 
+                    />
+                    <p>{currentUser.attributes.bio}</p>
+                    <Logout/></>  : null }
+                </li>
+            </ul>
 
         </div>
     )

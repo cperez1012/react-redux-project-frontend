@@ -3,7 +3,6 @@ const initialState = []
 export default (state = initialState, action) => {
     switch (action.type) {
         case "SET_MY_LISTS":
-            debugger
             return action.lists
         case "ADD_LISTS":
             return state.concat(action.list)

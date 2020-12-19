@@ -25,7 +25,7 @@ export const clearCurrentUser = () => {
 // asynchronous action creator
 // allows us to use dispatch
 export const login  = (credentials, history) => {
-    debugger
+
     console.log("credentials are", credentials)
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/login", {
@@ -41,7 +41,6 @@ export const login  = (credentials, history) => {
                 if (response.error){
                     alert(response.error)
                 } else {
-                    debugger
                     dispatch(setCurrentUser(response.data))
                     dispatch(getMyLists())
                     dispatch(getFighters())

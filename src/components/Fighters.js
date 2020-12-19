@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import Upvote from './Upvote';
 
 const Fighters = ({ fighters }) => {
 
@@ -26,8 +27,9 @@ const Fighters = ({ fighters }) => {
                 <label>D: </label><p>{fighter.attributes.draw}</p>
                 <label>KO: </label><p>{fighter.attributes.ko}</p>
                 <label>List: </label><p>{fighter.attributes.list.title}</p>
-
+                <Upvote/>
             </li>)
+
 
     return (
         fighterCards

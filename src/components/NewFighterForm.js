@@ -8,23 +8,20 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
     const {name, alias, nationality, division, stance, height, reach, status, champion, win, loss, draw, ko, list_id} = formData
 
     const handleChange = event => {
-        debugger
+    
         const target = event.target
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name
         console.log(formData)
         
         updateNewFighterForm(name, value)
-        debugger
     }
 
-    console.log(lists)
     return (
             <div>
                 <h1>Add Fighter</h1>
                 <form onSubmit={event => {
                     event.preventDefault()
-                    debugger
                     handleSubmit(formData)
                 }}>
                     <ol>
@@ -106,7 +103,6 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                         <label>Are they still fighting?</label>
                         <br></br>
                         <select name="status"
-                            // value={status}
                             defaultValue={status}
                             onChange={handleChange}>
                             <option disabled>Choose whether fighter is still competing</option>
@@ -187,7 +183,7 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
     )
 }
 const mapStateToProps = state => {
-    debugger
+
     return {
         formData: state.newFighterForm,
         lists: state.myLists

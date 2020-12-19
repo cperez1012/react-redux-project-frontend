@@ -4,7 +4,6 @@ import { resetListForm } from './newListForm.js'
 
 export const setMyLists = lists => {
 
-    // debugger
     return {
         type: "SET_MY_LISTS",
         lists

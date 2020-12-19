@@ -19,12 +19,13 @@ class EditFighterFormWrapper extends React.Component {
 
     handleSubmit = (formData) => {
         const { updateFighter, fighter, history } = this.props
-        debugger
+
         updateFighter({
             ...formData,
             fighterId: fighter.id,
-            // listId: fighter.attributes.list.id
+            listId: fighter.attributes.list.id
         }, history)
+
     }
 
     render() {

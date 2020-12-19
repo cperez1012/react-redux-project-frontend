@@ -8,8 +8,8 @@ import Login from './components/Login.js';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import Signup from './components/Signup.js';
-import MyLists from './components/MyLists.js';
-import Fighters from './components/Fighters.js';
+// import MyLists from './components/MyLists.js';
+// import Fighters from './components/Fighters.js';
 import ListCard from './components/ListCard.js';
 import FighterCard from './components/FighterCard.js';
 import NewListFormWrapper from './components/NewListFormWrapper.js';
@@ -17,9 +17,8 @@ import EditListFormWrapper from './components/EditListFormWrapper.js';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import NewFighterFormWrapper from './components/NewFighterFormWrapper';
 import EditFighterFormWrapper from './components/EditFighterFormWrapper.js';
-
-
-// import currentUser from './reducers/currentUser';
+import SecondContainer from './containers/SecondContainer.js';
+import MainContainer from './containers/MainContainer';
 
 class App extends React.Component{
 
@@ -37,7 +36,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/lists' component={MyLists}/>
+          <Route exact path='/lists' component={MainContainer}/>
           <Route exact path='/lists/new' component={NewListFormWrapper}/>
           <Route exact path='/lists/:id' render={props => {
 
@@ -53,7 +52,7 @@ class App extends React.Component{
             return <EditListFormWrapper list={list} {...props}/>
             }
           }/>
-          <Route exact path='/fighters' component={Fighters}/>
+          <Route exact path='/fighters' component={SecondContainer}/>
           <Route exact path='/fighters/new' component={NewFighterFormWrapper}/>
           <Route exact path='/fighters/:id' render={props => {
           

@@ -1,3 +1,22 @@
+BOXING FAN APP
+
+The Boxing Fan App was created using React Redux for the frontend and Ruby on Rails for the backend.
+
+Technologies Used
+React.js
+Redux to manage state
+Incorporates React Router for multiple routes
+
+Installation
+Please fork, clone or download the backend from in order to use Boxing Fan App
+
+Install Postgres on your computer
+Run bundle install
+in your terminal on the command line create the database by running rails db:create
+
+
+STANDARD CREATE REACT APP DOCUMENTATION
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

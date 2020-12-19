@@ -7,13 +7,13 @@ const ListCard = ({ list }) =>  {
     console.log(list)
     console.log(list.attributes.fighters)
 
-    debugger
     return (
         <div>
             <h1>{list.attributes.title}</h1>
             <Link to={`/lists/${list.id}/edit`}>Edit This List Name</Link>
             <ol>{list.attributes.fighters.map(fighter =>
                 <li key={fighter.id}>
+                    
                     <label>Name: </label>
                     <p>{fighter.name}</p>
                     <label>Alias: </label>
