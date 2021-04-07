@@ -31,7 +31,7 @@ class App extends React.Component{
       return (
 
       <div className="App">
-        <img src={logo} alt="Boxing Fan App"/>
+        <img className="logo" src={logo} alt="Boxing Fan App"/>
         { loggedIn ? <Navbar location={this.props.location}/> : <Home /> }
         <Switch>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
