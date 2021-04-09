@@ -9,9 +9,11 @@ const Fighters = ({ fighters }) => {
   
             <li key={fighter.id}>
                 <label>Name: <br></br></label>
+                <br></br>
                 <Link to={`/fighters/${fighter.id}`}>
-                {fighter.attributes.name}
+                    {fighter.attributes.name}
                 </Link>
+                <br></br>
                 <br></br>
                 <label>Alias: </label><p>{fighter.attributes.alias}</p>
                 <label>Nationality: </label><p>{fighter.attributes.nationality}</p>
