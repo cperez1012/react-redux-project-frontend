@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Logout from './Logout.js';
+import Button from 'react-bootstrap/esm/Button';
 
 const Navbar = ({ currentUser, loggedIn }) => {
 
@@ -9,21 +10,34 @@ const Navbar = ({ currentUser, loggedIn }) => {
         <div className="Navbar">
             <ul>
                 <li>
-                    <NavLink exact activeClassName="active" to="/lists" >My Lists    | </NavLink>
-                    <NavLink exact activeClassName="active" to="/lists/new" >New List    |</NavLink>
-                    <NavLink exact activeClassName="active" to="/fighters" > Fighters    |</NavLink>
-                    <NavLink exact activeClassName="active" to="/fighters/new" > Add New Fighters</NavLink>
+                    <br></br>
+                    <NavLink exact activeClassName="active" to="/lists" >
+                        <Button>My Lists</Button>
+                    </NavLink>
+                    {" "}
+                    <NavLink exact activeClassName="active" to="/lists/new" >
+                        <Button>New List</Button>
+                    </NavLink>
+                    {" "}
+                    <NavLink exact activeClassName="active" to="/fighters" >
+                        <Button>Fighters</Button>
+                    </NavLink>
+                    {" "}
+                    <NavLink exact activeClassName="active" to="/fighters/new" >
+                        <Button>Add New Fighters</Button>
+                    </NavLink>
+                    {" "}
                     { loggedIn ? <><p id="loggedin">Logged In as {currentUser.attributes.username}</p>    
-                    <img 
-                    src={currentUser.attributes.imageUrl} 
-                    alt="profile pic"
-                    style={{ width: 36 }} 
+                    <img
+                        src={currentUser.attributes.imageurl} 
+                        alt="Profile Pic"
+                        style={{ width: 100 }} 
                     />
                     <p>{currentUser.attributes.bio}</p>
                     <Logout/></>  : null }
                 </li>
             </ul>
-
+            <p>You must first create a list in order to then add a fighter to that list!</p>
         </div>
     )
 }
