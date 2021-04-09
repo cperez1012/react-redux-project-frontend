@@ -1,15 +1,12 @@
 import React from 'react';
 import logo from './image/logo.png';
 import './App.css';
-// Replaced Login and Logout componenets with Navbar
 import Navbar from './components/Navbar.js';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import Signup from './components/Signup.js';
-// import MyLists from './components/MyLists.js';
-// import Fighters from './components/Fighters.js';
 import ListCard from './components/ListCard.js';
 import FighterCard from './components/FighterCard.js';
 import NewListFormWrapper from './components/NewListFormWrapper.js';
