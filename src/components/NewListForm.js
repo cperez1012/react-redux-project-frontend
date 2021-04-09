@@ -21,8 +21,6 @@ const NewListForm = ({ formData, updateNewListForm, userId, list, handleSubmit, 
 
     }
 
-    // const handleSubmit = event => event.preventDefault()
-
     return (
         <form onSubmit={event => {
             event.preventDefault()
