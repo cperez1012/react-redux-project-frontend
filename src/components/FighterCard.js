@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/esm/Button';
 
 const FighterCard = ({ fighter }) =>  {
 
@@ -10,7 +11,11 @@ const FighterCard = ({ fighter }) =>  {
         <div>
             <h1>{fighter.attributes.name}</h1>
             <ul key={fighter.id}>
-            <Link to={`/fighters/${fighter.id}/edit`}>Edit This Fighter</Link>
+            <Link to={`/fighters/${fighter.id}/edit`}>
+                <Button>
+                    Edit This Fighter
+                </Button>
+            </Link>
                 <li>
                    <label>Alias: </label>
                    <p>{fighter.attributes.alias}</p>
@@ -44,12 +49,4 @@ const FighterCard = ({ fighter }) =>  {
     ) 
 }
 
-// const mapStateToProps = state => {
-//     debugger
-//     return {
-//         fighters: state.fighters
-//     }
-// }
-
-// export default connect(mapStateToProps)(FighterCard);
 export default connect(null) (FighterCard);
