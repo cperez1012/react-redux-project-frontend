@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  background-color: whitesmoke;
-  animation-name: bounce;
+  background-color: gainsboro;
 }
 
 .App-logo {
@@ -44,7 +43,6 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: red;
 }
 
 #loggedin {
@@ -54,7 +52,6 @@
 .image {
   width: 370px;
   margin-top: 50px;
-  animation-name: bounce;
 }
 
 ul {
@@ -78,6 +75,7 @@ h1 {
 
 p {
   color: maroon;
+  background-color: whitesmoke;
 }
 
 li {
@@ -85,6 +83,11 @@ li {
   list-style-type: none;
 }
 
-.logo {
-  animation-name: bounce;
+ol {
+  padding: 0;
+}
+
+div {
+  justify-content: center;
+  text-align: center;
 }
