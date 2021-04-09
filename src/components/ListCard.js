@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/esm/Button';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +11,11 @@ const ListCard = ({ list }) =>  {
     return (
         <div>
             <h1>{list.attributes.title}</h1>
-            <Link to={`/lists/${list.id}/edit`}>Edit This List Name</Link>
+            <Link to={`/lists/${list.id}/edit`}>
+                <Button>
+                    Edit This List Name
+                </Button>
+            </Link>
             <ol>{list.attributes.fighters.map(fighter =>
                 <li key={fighter.id}>
                     
