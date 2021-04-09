@@ -9,11 +9,10 @@ import Button from 'react-bootstrap/Button';
 const NewListForm = ({ formData, updateNewListForm, userId, list, handleSubmit, editMode }) => {
 
     const { title } = formData
-    // debugger
+
     const handleChange = event => {
      
         const { name, value } = event.target
-        // debugger
         // 4.  This is not an invocation of just the action creator,
         // it's now Redux dispatching the action built by the action
         // creator with the appropriate arguments
@@ -27,15 +26,17 @@ const NewListForm = ({ formData, updateNewListForm, userId, list, handleSubmit, 
     return (
         <form onSubmit={event => {
             event.preventDefault()
-            debugger
             handleSubmit(formData)
         }}>
+            <br></br>
             <input 
-                placeholder="title"
+                placeholder="Enter List Title"
                 name="title"
                 onChange={handleChange}
                 value={title}   
-            /><br></br>
+            />
+            <br></br>
+            <br></br>
             <Button 
                 type="submit"
                 value={ editMode ? "Update List" : "Create List" }

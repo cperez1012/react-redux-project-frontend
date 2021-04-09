@@ -172,11 +172,13 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                             
                             <option key={list.id} value={list.id}>{list.attributes.title}</option>)}
                         </select>
-                        <br></br>             
+                        <br></br>  
+                        <br></br>           
                         <Button
                             type="submit"
-                            value={ editMode ? "Update Fighter" : "Create Fighter" }
-                        >Create Fighter</Button>
+                            value={ editMode ? "Update Fighter" : "Create Fighter" }>
+                                Create Fighter
+                        </Button>
                     </ol>
                 </form>
             </div>       
