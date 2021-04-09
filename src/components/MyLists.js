@@ -27,7 +27,7 @@ const MyLists = ({ lists }) => {
 }
 
 const mapStateToProps = state => {
-    // debugger
+
     return {
         lists: state.myLists
     }
