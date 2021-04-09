@@ -1,8 +1,8 @@
 import React from 'react';
+import Button from 'react-bootstrap/esm/Button';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { logout } from '../actions/currentUser.js';
-
 
 
 // Don't need handle submit because there is no data that needs to be passed through
@@ -16,7 +16,9 @@ const Logout = ({ logout, history }) => {
             history.push('/')
             }
         }>
-            <input  value = "Logout" type="submit" />
+            <Button value = "Logout" type="submit">
+            Logout
+            </Button>
         </form>
     )
 }
