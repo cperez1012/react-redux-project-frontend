@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 const initialState = {
     title: ""
 }
@@ -9,7 +10,6 @@ export default (state=initialState, action) => {
                 ...state,
                 [action.formData.name]: action.formData.value
             }
-            // debugger
         return returnVal
         case "RESET_NEW_LIST_FORM":
             return initialState
