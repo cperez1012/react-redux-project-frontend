@@ -1,8 +1,9 @@
+/* eslint-disable import/no-anonymous-default-export */
 const initialState = {
     username: "",
     email: "",
     password: "",
-    imageUrl: "",
+    imageurl: "",
     bio: "",
 }
 
