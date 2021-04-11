@@ -1,17 +1,9 @@
 .App {
-  text-align: center;
-  background-color: gainsboro;
+  background-color: rgba(255, 255, 255, 0.644);
 }
 
 .App-logo {
-  height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -22,20 +14,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
 }
 
 .App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  color: #c21515;
 }
 
 /* adding .Navbar styling */
@@ -46,12 +29,11 @@
 }
 
 #loggedin {
-  font-size: 7px;
+  font-size: 14px;
 }
 
 .image {
   width: 370px;
-  margin-top: 50px;
 }
 
 ul {
@@ -59,10 +41,6 @@ ul {
   margin: 0;
   padding: 0;
 }
-
-* {
-  color: #333;
-  }
   
   .is-emphasized {
   font-weight: bold;
@@ -71,16 +49,21 @@ ul {
 
 h1 {
   color: red;
-}
-
-p {
-  color: maroon;
-  background-color: whitesmoke;
+  font-weight: bolder;
+  background-color: rgba(255, 255, 255, 0.363);
+  font-size: x-large;
 }
 
 li {
-  background-color: lightgrey;
   list-style-type: none;
+  background-color:rgba(245, 245, 245, 0.123);
+  font-size: medium;
+  font-weight: bold;
+  border-style: solid;
+  box-sizing: content-box;
+  box-decoration-break: slice;
+  text-align: center;
+  justify-content: center
 }
 
 ol {
@@ -90,4 +73,50 @@ ol {
 div {
   justify-content: center;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.39);
+}
+
+a {
+  color: rgba(255, 0, 0, 0.411);
+}
+
+.href {
+  color: rgba(255, 0, 0, 0.411);
+}
+
+.Fighters-card {
+  width: 320px;
+  height: 415px;
+}
+
+img {
+  background-color: rgba(255, 255, 255, 0.363);
+}
+
+p {
+  color: black;
+  font-weight: bolder;
+  background-color: rgba(255, 255, 255, 0.363);
+}
+
+ol {
+  font-weight: bolder;
+  font-style: normal;
+  background-color: rgba(255, 255, 255, 0.363);
+}
+
+.Router {
+  background-color: rgba(255, 255, 255, 0.644);
+}
+
+body {
+  background-color: rgba(255, 255, 255, 0.644);
+}
+
+html {
+  line-height: normal;
+}
+
+Button {
+  background-color: red;
 }
