@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Logout from './Logout.js';
-import Button from 'react-bootstrap/esm/Button';
+// import Button from 'react-bootstrap/esm/Button';
+import Button from '@material-ui/core/Button';
 
 const Navbar = ({ currentUser, loggedIn }) => {
 
@@ -12,19 +13,19 @@ const Navbar = ({ currentUser, loggedIn }) => {
                 <li>
                     <br></br>
                     <NavLink exact activeClassName="active" to="/lists" >
-                        <Button>My Lists</Button>
+                        <Button variant="contained" color="secondary">My Lists</Button>
                     </NavLink>
                     {" "}
                     <NavLink exact activeClassName="active" to="/lists/new" >
-                        <Button>New List</Button>
+                        <Button variant="contained" color="secondary">New List</Button>
                     </NavLink>
                     {" "}
                     <NavLink exact activeClassName="active" to="/fighters" >
-                        <Button>Fighters</Button>
+                        <Button variant="contained" color="secondary">Fighters</Button>
                     </NavLink>
                     {" "}
                     <NavLink exact activeClassName="active" to="/fighters/new" >
-                        <Button>Add New Fighters</Button>
+                        <Button variant="contained" color="secondary">Add New Fighters</Button>
                     </NavLink>
                     {" "}
                     { loggedIn ? <><p id="loggedin">Logged In as {currentUser.attributes.username}</p>    
