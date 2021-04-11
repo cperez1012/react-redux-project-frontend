@@ -6,7 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Form from "react-bootstrap/Form";
-import Button from 'react-bootstrap/esm/Button';
+// import Button from 'react-bootstrap/esm/Button';
+import Button from '@material-ui/core/Button';
 
 const Login = ({ loginForm, updateLoginForm, login, history }) => {
 
@@ -49,7 +50,7 @@ const Login = ({ loginForm, updateLoginForm, login, history }) => {
                 <br></br>
                 </Grid>
                 <br></br>
-                <Button type="submit" value="Login">
+                <Button variant="contained" color="secondary" type="submit" value="Login">
                     Login
                 </Button>
                 
