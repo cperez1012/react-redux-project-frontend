@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from 'react-bootstrap/esm/Button';
+// import Button from 'react-bootstrap/esm/Button';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { logout } from '../actions/currentUser.js';
-
+import Button from '@material-ui/core/Button';
 
 // Don't need handle submit because there is no data that needs to be passed through
 const Logout = ({ logout, history }) => {
@@ -16,7 +16,7 @@ const Logout = ({ logout, history }) => {
             history.push('/')
             }
         }>
-            <Button value = "Logout" type="submit">
+            <Button variant="contained" color="secondary" value = "Logout" type="submit">
             Logout
             </Button>
         </form>
