@@ -1,20 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Button, Card } from '@material-ui/core';
 
 const MyLists = ({ lists }) => {
    
     const listCards = lists.length > 0 ? 
     
     lists.map(list => 
-        ( 
+        (<Card>
             <ol  key={list.id} style={{ listStyleType: "upper-roman" }}>
-                <ul>
+                <li>
                     <Link to={`/lists/${list.id}`}>
-                    <p>{list.attributes.title}</p>
+                        <Button variant="contained" color="secondary">
+                        {list.attributes.title}
+                        </Button>
                     </Link>
-                </ul>
+                </li>
             </ol>
+        </Card>
         ))
    
     :
