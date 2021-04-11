@@ -5,7 +5,8 @@ import { signup } from '../actions/currentUser.js';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Button from 'react-bootstrap/esm/Button';
+// import Button from 'react-bootstrap/esm/Button';
+import Button from '@material-ui/core/Button';
 import Form from "react-bootstrap/Form";
 
 const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
@@ -48,7 +49,7 @@ const handleSubmit = event => {
                 <TextField placeholder="Bio" value={signupFormData.bio} name="bio" type="text" onChange={handleUserInfoInputChange} />
                 <br></br>
                 <br></br>
-                <Button type="submit"  value="signup">
+                <Button variant="contained" color="secondary" type="submit"  value="signup">
                     Signup
                 </Button> 
             </Grid>          
