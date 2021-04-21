@@ -1,53 +1,54 @@
 import React from 'react';
-import Button from 'react-bootstrap/esm/Button';
+import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
+// import { useSelector } from 'react-redux';
 
 const ListCard = ({ list }) =>  {
+// const ListCard = () => {
 
+//     let list = useSelector(state => {
+//         return state.myLists[1]
+//     })
+    // debugger
     console.log(list)
-    console.log(list.attributes.fighters)
+    // console.log(list.attributes.fighters)
 
     return (
         <div>
             <h1>{list.attributes.title}</h1>
             <Link to={`/lists/${list.id}/edit`}>
-                <Button>
+                <Button variant="contained" color="secondary">
                     Edit This List Name
                 </Button>
             </Link>
+            <Card raised className="Fighter-cards">
             <ol>{list.attributes.fighters.map(fighter =>
                 <li key={fighter.id}>
-                    
-                    <label>Name: </label>
-                    <p>{fighter.name}</p>
-                    <label>Alias: </label>
-                    <p>{fighter.alias}</p>
-                    <label>Nationality: </label>
-                    <p>{fighter.nationality}</p>
-                    <label>Division: </label>
-                    <p>{fighter.division}</p>
-                    <label>Stance: </label>
-                    <p>{fighter.stance}</p>
-                    <label>Height: </label>
-                    <p>{fighter.height}</p>
-                    <label>Reach: </label>
-                    <p>{fighter.reach}</p>
-                    <label>Status: </label>
-                    <p>{fighter.status}</p>
-                    <label>Are they a champion? </label>
-                    <p>{fighter.champion ? "Yes" : "No"}</p>
-                    <label>W: </label>
-                    <p>{fighter.win}</p>
-                    <label>L: </label>
-                    <p>{fighter.loss}</p>
-                    <label>D: </label>
-                    <p>{fighter.draw}</p>
-                    <label>KO: </label>
-                    <p>{fighter.ko}</p>
+                    <label>Ranking: </label>{" "}{fighter.ranking}<br></br>                   
+                    <label>Name: </label>{" "}{fighter.name}<br></br>
+                    <img
+                        src={fighter.imageurl} 
+                        alt="Fighter Pic"
+                        style={{ width: 100 }} 
+                    /><br></br>
+                    <label>Alias: </label>{" "}{fighter.alias}<br></br>
+                    <label>Nationality: </label>{" "}{fighter.nationality}<br></br>
+                    <label>Division: </label>{" "}{fighter.division}<br></br>
+                    <label>Stance: </label>{" "}{fighter.stance}<br></br>
+                    <label>Height: </label>{" "}{fighter.height}<br></br>
+                    <label>Reach: </label>{" "}{fighter.reach}<br></br>
+                    <label>Status: </label>{" "}{fighter.status}<br></br>                   
+                    <label>Are they a champion? </label>{fighter.champion ? "Yes" : "No"}<br></br>
+                    <label>W: </label>{" "}{fighter.win}<br></br>
+                    <label>L: </label>{" "}{fighter.loss}<br></br>
+                    <label>D: </label>{" "}{fighter.draw}<br></br>
+                    <label>KO: </label>{" "}{fighter.ko}<br></br>
 
                 </li> 
             )}</ol>
+            </Card>
         </div>    
     )
 }
@@ -59,3 +60,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(ListCard);
+
+// export default ListCard

@@ -3,7 +3,7 @@ import NewListForm from './NewListForm.js';
 import { updateList, deleteList } from '../actions/myLists.js';
 import { setFormDataForEdit, resetListForm } from '../actions/newListForm.js';
 import { connect } from 'react-redux';
-import Button from 'react-bootstrap/esm/Button';
+import Button from '@material-ui/core/Button';
 
 class EditListFormWrapper extends React.Component {
     componentDidMount() {
@@ -26,13 +26,15 @@ class EditListFormWrapper extends React.Component {
         }, history)
     }
 
+
     render() {
         const { history, deleteList, list } = this.props
         const listId = list ? list.id : null
+
         return <>
             <NewListForm editMode handleSubmit={this.handleSubmit} />
             <br/>
-            <Button style={{color: "red"}} onClick={() => deleteList(listId, history)}>
+            <Button variant="contained" color="secondary" onClick={() => deleteList(listId, history)}>
                 Delete this List 
             </Button>
             </>

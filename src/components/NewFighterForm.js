@@ -1,11 +1,11 @@
 import React from 'react';
 import { updateNewFighterForm } from '../actions/newFighterForm.js';
 import { connect } from 'react-redux';
-import Button from 'react-bootstrap/esm/Button';
+import Button from '@material-ui/core/Button';
 
 const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode, lists }) => {
     
-    const {name, alias, nationality, division, stance, height, reach, status, champion, win, loss, draw, ko, list_id} = formData
+    const {name, imageurl, alias, nationality, division, stance, height, reach, status, champion, win, loss, draw, ko, list_id, ranking} = formData
 
     const handleChange = event => {
     
@@ -19,12 +19,25 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
 
     return (
             <div>
-                <h1>Add Fighter</h1>
+                <h1>Fighter Stats</h1>
                 <form onSubmit={event => {
                     event.preventDefault()
                     handleSubmit(formData)
                 }}>
                     <ol>
+                        <ul>
+                        <label>Ranking: </label>
+                        <br></br> 
+                        <input
+                            placeholder="Enter Rating"
+                            name="ranking"
+                            type="number"
+                            pattern="[0-200]*"
+                            inputMode="numeric"
+                            onChange={handleChange}
+                            value={ranking}
+                        />
+                        </ul>
                         <ul>
                         <label>Add Name: </label>
                         <br></br> 
@@ -33,6 +46,22 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                             name="name"
                             onChange={handleChange}
                             value={name} 
+                        />
+                        </ul>
+                        <br></br>
+                        <img
+                        src={imageurl} 
+                        alt="Fighter Pic"
+                        style={{ width: 100, height: 100 }} 
+                        /><br></br>
+                        <ul>
+                        <label>Image: </label>
+                        <br></br> 
+                        <input
+                            placeholder="Enter Image Url"
+                            name="imageurl"
+                            onChange={handleChange}
+                            value={imageurl} 
                         />
                         </ul>
                         <label>Add Alias: </label>
@@ -175,6 +204,7 @@ const NewFighterForm = ({ formData, updateNewFighterForm, handleSubmit, editMode
                         <br></br>  
                         <br></br>           
                         <Button
+                            variant="contained" color="secondary"
                             type="submit"
                             value={ editMode ? "Update Fighter" : "Create Fighter" }>
                                 Create Fighter

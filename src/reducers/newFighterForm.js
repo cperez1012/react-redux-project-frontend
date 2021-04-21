@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 const initialState = {
     name: "",
+    imageurl: "",
     alias: "",
     nationality: "",
     division: "",
@@ -13,6 +14,7 @@ const initialState = {
     loss: 0,
     draw: 0,
     ko: 0,
+    rating: 0,
     listId: 0
 }
 

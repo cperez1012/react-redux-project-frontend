@@ -2,7 +2,7 @@ import React from 'react';
 // 1.  VVV We first grab the action creator
 import { updateNewListForm } from '../actions/newListForm.js';
 import { connect } from 'react-redux';
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 
 // 3.  This means Redux gives us back a prop called updateNewTripForm
 // which when invoked, actually Redux will now dispatch
@@ -35,7 +35,7 @@ const NewListForm = ({ formData, updateNewListForm, userId, list, handleSubmit, 
             />
             <br></br>
             <br></br>
-            <Button 
+            <Button variant="contained" color="secondary"
                 type="submit"
                 value={ editMode ? "Update List" : "Create List" }
             >

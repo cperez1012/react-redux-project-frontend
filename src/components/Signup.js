@@ -34,22 +34,12 @@ const handleSubmit = event => {
                 <Grid item>
                     <AccountCircle />
                 </Grid>
-                <TextField placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />
-                <br></br>
-                <br></br>
-                <TextField placeholder="Email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />
-                <br></br>
-                <br></br>
-                <TextField placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />
-                <br></br>
-                <br></br>
-                <TextField placeholder="Image Url" value={signupFormData.imageurl} name="imageurl" type="text" onChange={handleUserInfoInputChange} />
-                <br></br>
-                <br></br>
-                <TextField placeholder="Bio" value={signupFormData.bio} name="bio" type="text" onChange={handleUserInfoInputChange} />
-                <br></br>
-                <br></br>
-                <Button variant="contained" color="secondary" type="submit"  value="signup">
+                <TextField placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />{"  "}
+                <TextField placeholder="Email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />{"  "}
+                <TextField placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />{"  "}
+                <TextField placeholder="Image Url" value={signupFormData.imageurl} name="imageurl" type="text" onChange={handleUserInfoInputChange} />{"  "}
+                <TextField placeholder="Bio" value={signupFormData.bio} name="bio" type="text" onChange={handleUserInfoInputChange} />{"  "}
+                <Button variant="contained" color="secondary" type="submit"  value="signup">{"  "}
                     Signup
                 </Button> 
             </Grid>          

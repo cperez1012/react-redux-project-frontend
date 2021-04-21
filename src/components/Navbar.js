@@ -12,6 +12,10 @@ const Navbar = ({ currentUser, loggedIn }) => {
             <ul>
                 <li>
                     <br></br>
+                    <NavLink exact activeClassName="active" to="/about">
+                        <Button variant="contained" color="secondary">About Page</Button>
+                    </NavLink>
+                    {" "}
                     <NavLink exact activeClassName="active" to="/lists" >
                         <Button variant="contained" color="secondary">My Lists</Button>
                     </NavLink>
@@ -32,7 +36,7 @@ const Navbar = ({ currentUser, loggedIn }) => {
                     <img
                         src={currentUser.attributes.imageurl} 
                         alt="Profile Pic"
-                        style={{ width: 100 }} 
+                        style={{ width: 100, height: 100 }}
                     />
                     <p>{currentUser.attributes.bio}</p>
                     <Logout/></>  : null }

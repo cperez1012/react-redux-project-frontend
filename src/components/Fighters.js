@@ -1,37 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
-import Upvote from './Upvote';
+import { Card } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const Fighters = ({ fighters }) => {
 
     const fighterCards = fighters.map((fighter) =>
-  
+        <Card raised className="Fighter-cards">
             <li key={fighter.id}>
-                <label>Name: <br></br></label>
-                <br></br>
+                <label>Ranking: {" "}</label>{" "}{fighter.attributes.ranking}<br></br>
+                <label>Name: <br></br></label>{"  "}
                 <Link to={`/fighters/${fighter.id}`}>
                     {fighter.attributes.name}
                 </Link>
                 <br></br>
-                <br></br>
-                <label>Alias: </label><p>{fighter.attributes.alias}</p>
-                <label>Nationality: </label><p>{fighter.attributes.nationality}</p>
-                <label>Division: </label><p>{fighter.attributes.division}</p>
-                <label>Fighting Stance: </label><p>{fighter.attributes.stance}</p>
-                <label>Height: </label><p>{fighter.attributes.height}</p>
-                <label>Reach: </label><p>{fighter.attributes.reach}</p>
-                <label>Status: </label><p>{fighter.attributes.status}</p>
-                <label>Are they a current champion? </label><p>{fighter.attributes.champion ? "Yes" : "No"}</p>
+                <img
+                        src={fighter.attributes.imageurl} 
+                        alt="Fighter Pic"
+                        style={{ width: 100, height: 100 }}
+                    /><br></br>
+                <label>Alias:{"  "}</label>{" "}{fighter.attributes.alias}<br></br>
+                <label>Nationality:{"  "}</label>{" "}{fighter.attributes.nationality}<br></br>
+                <label>Division:{"  "}</label>{" "}{fighter.attributes.division}<br></br>
+                <label>Fighting Stance:{"  "}</label>{" "}{fighter.attributes.stance}<br></br>
+                <label>Height:{"  "}</label>{" "}{fighter.attributes.height}<br></br>
+                <label>Reach:{"  "}</label>{" "}{fighter.attributes.reach}<br></br>
+                <label>Status:{"  "}</label>{" "}{fighter.attributes.status}<br></br>
+                <label>Are they a current champion?{"  "}</label>{fighter.attributes.champion ? "Yes" : "No"}<br></br>
                 <label>Fighter's Record</label><br></br>
-                <label>W: </label><p>{fighter.attributes.win}</p>
-                <label>L: </label><p>{fighter.attributes.loss}</p>
-                <label>D: </label><p>{fighter.attributes.draw}</p>
-                <label>KO: </label><p>{fighter.attributes.ko}</p>
-                <label>List: </label><p>{fighter.attributes.list.title}</p>
-                <Upvote/>
-            </li>)
-
+                <label>W:{"  "}</label>{" "}{fighter.attributes.win}{"  "}
+                <label>L:{"  "}</label>{" "}{fighter.attributes.loss}{"  "}
+                <label>D:{"  "}</label>{" "}{fighter.attributes.draw}{"  "}
+                <label>KO:{"  "}</label>{" "}{fighter.attributes.ko}{"  "}<br></br>
+                <label>List:{"  "}</label>{" "}{fighter.attributes.list.title}{"  "}
+            </li>
+        </Card>)
 
     return (
         fighterCards

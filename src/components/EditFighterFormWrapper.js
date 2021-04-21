@@ -3,6 +3,7 @@ import NewFighterForm from './NewFighterForm.js';
 import { updateFighter, deleteFighter } from '../actions/fighters.js';
 import { setFighterDataForEdit, resetFighterForm } from '../actions/newFighterForm.js';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class EditFighterFormWrapper extends React.Component {
     componentDidMount() {
@@ -34,7 +35,7 @@ class EditFighterFormWrapper extends React.Component {
         return <>
             <NewFighterForm editMode handleSubmit={this.handleSubmit} />
             <br/>
-            <button style={{color: "red"}} onClick={() => deleteFighter(fighterId, history)}>Delete this Fighter</button>
+            <Button variant="contained" color="secondary" onClick={() => deleteFighter(fighterId, history)}>Delete this Fighter</Button>
             </>
     }
 }
