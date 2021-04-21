@@ -16,6 +16,8 @@ import NewFighterFormWrapper from './components/NewFighterFormWrapper';
 import EditFighterFormWrapper from './components/EditFighterFormWrapper.js';
 import SecondContainer from './containers/SecondContainer.js';
 import MainContainer from './containers/MainContainer';
+import background from './image/LogoMakr-1ujsPh.png'
+import About from './components/About.js';
 
 class App extends React.Component{
 
@@ -27,12 +29,13 @@ class App extends React.Component{
       const { loggedIn, lists, fighters } = this.props
       return (
 
-      <div className="App">
+      <div className="App" style={{ backgroundImage: `url(${background})` }}>
         <img className="logo" src={logo} alt="Boxing Fan App"/>
         { loggedIn ? <Navbar location={this.props.location}/> : <Home /> }
         <Switch>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
+          <Route exact path='/about' component={About}/>
           <Route exact path='/lists' component={MainContainer}/>
           <Route exact path='/lists/new' component={NewListFormWrapper}/>
           <Route exact path='/lists/:id' render={props => {
@@ -64,6 +67,7 @@ class App extends React.Component{
           }}/>
         </Switch>
       </div>
+
       
     );
   }
