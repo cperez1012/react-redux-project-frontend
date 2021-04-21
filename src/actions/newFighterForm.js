@@ -19,6 +19,7 @@ export const setFighterDataForEdit = fighter => {
    
     const fighterFormData = {
         name:  fighter.attributes.name,
+        imageurl: fighter.attributes.imageurl,
         alias:  fighter.attributes.alias,
         nationality:  fighter.attributes.nationality,
         division:  fighter.attributes.division,
@@ -31,6 +32,7 @@ export const setFighterDataForEdit = fighter => {
         loss:  fighter.attributes.loss,
         draw:  fighter.attributes.draw,
         ko:  fighter.attributes.ko,
+        ranking: fighter.attributes.ranking,
         listId: fighter.attributes.listId
 
     }
