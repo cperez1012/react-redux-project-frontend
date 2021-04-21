@@ -1,5 +1,7 @@
 BOXING FAN APP
 
+![](BoxingFanApp.gif)
+
 The Boxing Fan App was created using React Redux for the frontend and Ruby on Rails for the backend. Users can create various lists of there favorite fighters in boxing. Users must first create a list in order to add fighters. Users will need to input all information detailing the fighter's height, weight, wins, losses, draws, country of origin, etc. 
 
 Technologies Used
