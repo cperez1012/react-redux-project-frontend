@@ -28,7 +28,8 @@ const Login = ({ loginForm, updateLoginForm, login, history }) => {
         return (
             <div className="login">
             <Form onSubmit = {handleSubmit}>
-                <Grid container spacing={1} alignItems="flex-end">
+                <Grid>
+                <Grid container spacing={0} alignItems="flex-end">
                 <Grid item>
                     <AccountCircle />
                 </Grid>
@@ -47,6 +48,7 @@ const Login = ({ loginForm, updateLoginForm, login, history }) => {
                 <Button variant="contained" color="secondary" type="submit" value="Login">
                     Login
                 </Button>
+                </Grid>
                 </Grid>
             </Form>
         </div>
