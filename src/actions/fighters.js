@@ -81,9 +81,9 @@ export const createFighter = ( history ) => {
         .then(response => {
             if (response.error) {
                 alert(response.error) 
-                } else {
-                    dispatch(addFighter(response.data))
-                    history.push(`/fighters/${response.data.id}`)
+            } else {
+                dispatch(addFighter(response.data))
+                history.push(`/fighters/${response.data.id}`)
             }
         })
         .catch(console.log)
