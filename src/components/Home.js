@@ -8,13 +8,13 @@ const Home = () => (
             <br></br>
             <br></br>
             <h1>WELCOME TO THE BOXING FAN APP</h1>
-            <Link to="/signup">
-                <Button variant="contained" color="secondary">
+            <Link exact activeStyle= {{textDecoration:'underline'}} to="/signup">
+                <Button  variant="contained" color="secondary">
                     Click To Signup
                 </Button>    
             </Link>
             {" or "}
-            <Link to="/login"> 
+            <Link exact activestyle= {{textDecoration:'underline'}} to="/login"> 
                 <Button variant="contained" color="secondary">
                     Click To Login
                 </Button>
