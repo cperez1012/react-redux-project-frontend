@@ -25,9 +25,13 @@
 
 /* adding .Navbar styling */
 .Navbar {
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  overflow: 'hidden'
 }
 
 #loggedin {
@@ -67,7 +71,11 @@ li {
   box-sizing: content-box;
   box-decoration-break: slice;
   text-align: center;
-  justify-content: center
+  justify-content: center;
+}
+
+.navbar-list {
+  display:inline-flex;
 }
 
 ol {
@@ -83,6 +91,7 @@ div {
 
 a {
   color: rgba(255, 0, 0, 0.411);
+  text-decoration: underline;
 }
 
 .href {
@@ -123,14 +132,16 @@ img:hover {
   background-color: white;
 }
 
-/* .logo {
-  background-color: transparent;
-} */
-
 .MainContainer {
   background-color: black;
 }
 
 .SecondContainer {
   background-color: black;
+}
+
+
+
+.MuiGrid-spacing-xs-1 {
+    width:none;
 }
