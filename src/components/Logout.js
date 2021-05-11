@@ -16,7 +16,7 @@ const Logout = ({ logout, history }) => {
             history.push('/')
             }
         }>
-            <Button variant="contained" color="secondary" value = "Logout" type="submit">
+            <Button className="navbar-lists" variant="contained" color="secondary" value = "Logout" type="submit">
             Logout
             </Button>
         </form>
