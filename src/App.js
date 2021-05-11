@@ -31,6 +31,8 @@ class App extends React.Component{
 
       <div className="App" style={{ backgroundImage: `url(${background})` }}>
         <img className="logo" src={logo} alt="Boxing Fan App"/>
+        <br></br>
+        <br></br>
         { loggedIn ? <Navbar location={this.props.location}/> : <Home /> }
         <Switch>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
