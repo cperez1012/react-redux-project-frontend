@@ -8,9 +8,9 @@ const MyLists = ({ lists }) => {
     const listCards = lists.length > 0 ? 
     
     lists.map(list => (
-            <ol  key={list.id}>
-                <li>
-                    <Link to={`/lists/${list.id}`}>
+            <ol>
+                <li key={list.id}>
+                    <Link exact activeStyle= {{textDecoration:'underline'}} to={`/lists/${list.id}`}>
                         <Button variant="contained" color="secondary">
                         {list.attributes.title}
                         </Button>
