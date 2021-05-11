@@ -3,7 +3,7 @@ import Fighters from '../components/Fighters.js';
 
 const SecondContainer = () => {
     return (
-        <div className="SecondContainer">
+        <div key="" className="SecondContainer">
            <Fighters/>
         </div>
     )
