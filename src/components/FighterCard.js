@@ -12,7 +12,7 @@ const FighterCard = ({ fighter }) =>  {
 
     return (
         <div>
-            <Link to={`/fighters/${fighter.id}/edit`}>
+            <Link exact activeStyle= {{textDecoration:'underline'}} to={`/fighters/${fighter.id}/edit`}>
                 <Button variant="contained" color="secondary">
                     Edit This Fighter
                 </Button>
