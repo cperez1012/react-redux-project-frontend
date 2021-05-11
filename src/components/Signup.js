@@ -2,10 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateSignupForm } from '../actions/signupForm.js';
 import { signup } from '../actions/currentUser.js';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-// import Button from 'react-bootstrap/esm/Button';
+import EmailIcon from '@material-ui/icons/Email';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import ImageSearchIcon from '@material-ui/icons/ImageSearch';
+import SpeakerNotesIcon from '@material-ui/icons/SpeakerNotes';
 import Button from '@material-ui/core/Button';
 import Form from "react-bootstrap/Form";
 
@@ -30,19 +33,32 @@ const handleSubmit = event => {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Grid container spacing={1} alignItems="flex-end">
-                <Grid item>
-                    <AccountCircle />
+            <Grid>
+                <Grid item container spacing={1} alignItems="flex-end">                    
+                <AccountCircle />
+                <input placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />{"  "}<br></br><br></br>    
                 </Grid>
-                <TextField placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />{"  "}
-                <TextField placeholder="Email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />{"  "}
-                <TextField placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />{"  "}
-                <TextField placeholder="Image Url" value={signupFormData.imageurl} name="imageurl" type="text" onChange={handleUserInfoInputChange} />{"  "}
-                <TextField placeholder="Bio" value={signupFormData.bio} name="bio" type="text" onChange={handleUserInfoInputChange} />{"  "}
+                <Grid item container spacing={1} alignItems="flex-end">
+                <EmailIcon />
+                <input placeholder="Email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />{"  "}<br></br>
+                </Grid>
+                <Grid item container spacing={1} alignItems="flex-end">
+                <VpnKeyIcon />
+                <input placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />{"  "}<br></br>
+                </Grid>
+                <Grid item container spacing={1} alignItems="flex-end">
+                <ImageSearchIcon />
+                <input placeholder="Image Url" value={signupFormData.imageurl} name="imageurl" type="text" onChange={handleUserInfoInputChange} />{"  "}<br></br>
+                </Grid>
+                <Grid>
+                <SpeakerNotesIcon/>
+                <input placeholder="Bio" value={signupFormData.bio} name="bio" type="text" onChange={handleUserInfoInputChange} />{"  "}<br></br>
+                </Grid> 
                 <Button variant="contained" color="secondary" type="submit"  value="signup">{"  "}
                     Signup
-                </Button> 
-            </Grid>          
+                </Button>
+                <br></br>
+            </Grid>
         </Form>
 
     )
