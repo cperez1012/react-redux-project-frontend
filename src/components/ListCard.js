@@ -18,7 +18,7 @@ const ListCard = ({ list }) =>  {
     return (
         <div>
             <h1>{list.attributes.title}</h1>
-            <Link to={`/lists/${list.id}/edit`}>
+            <Link exact activeStyle= {{textDecoration:'underline'}}to={`/lists/${list.id}/edit`}>
                 <Button variant="contained" color="secondary">
                     Edit This List Name
                 </Button>
